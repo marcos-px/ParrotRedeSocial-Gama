@@ -1,0 +1,66 @@
+{
+  "name": "grupo8-parrot-gama",
+  "version": "1.0.1",
+  "description": "Trabalho solicitado no xp44 - backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "tsc && node --unhandled-rejections=strict -r dotenv/config ./dist/infrastructure/app/app.js",
+    "debug": "set DEBUG=* && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcos-px/ParrotRedeSocial-Gama.git"
+  },
+  "keywords": [
+    "gama",
+    "typescript",
+    "parrot",
+    "node",
+    "express",
+    "sequelize",
+    "mysql"
+  ],
+  "author": "Marcos Teixeira, Lorena",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcos-px/ParrotRedeSocial-Gama/issues"
+  },
+  "homepage": "https://github.com/marcos-px/ParrotRedeSocial-Gama#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-typescript": "^7.18.6",
+    "@faker-js/faker": "^7.6.0",
+    "@types/cors": "^2.8.12",
+    "@types/debug": "^4.1.7",
+    "@types/express": "^4.17.14",
+    "@types/jest": "^29.1.2",
+    "@types/multer": "^1.4.7",
+    "@types/node-fetch": "^2.6.2",
+    "babel-jest": "^29.2.1",
+    "jest": "^29.2.1",
+    "sequelize-cli": "^6.5.1",
+    "source-map-support": "^0.5.21",
+    "supertest": "^6.3.0",
+    "ts-jest": "^29.0.3",
+    "tslint": "^6.1.3",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@types/sequelize": "^4.28.14",
+    "@types/supertest": "^2.0.12",
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "express-winston": "^4.2.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.6",
+    "nodeenv": "^3.0.75",
+    "sequelize": "^6.25.1",
+    "winston": "^3.8.2",
+    "xlsx": "^0.18.5"
+  }
+}
