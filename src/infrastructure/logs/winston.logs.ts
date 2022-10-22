@@ -11,6 +11,8 @@ const logger = winston.createLogger({
         new winston.transports.File({ filename: path.resolve('logs', 'error.log'), level: "error" }),
         new winston.transports.File({ filename: path.resolve('logs', 'info.log'), level: "info" })
     ]
+    
 });
+
 
 export default logger;

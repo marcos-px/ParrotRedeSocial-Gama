@@ -1,9 +1,9 @@
 import * as Sequelize from "sequelize";
-import dbConfig from "../config/db.config";
-import {IDBModel} from "./dbmodel.interface";
+import dbConfig from "../../config/db.config";
+import {IDBModel} from "../dbmodel.interface";
 
-export class MySqlDb implements IDBModel{
-    private static _instance: MySqlDb;
+export class MySqlDB implements IDBModel {
+    private static _instance: MySqlDB;
     private _db: string;
     private _username: string;
     private _password: string;
@@ -27,11 +27,12 @@ export class MySqlDb implements IDBModel{
         });
     }
 
-    public static getInstance():MySqlDb{
-        if (!MySqlDb._instance){
-            MySqlDb._instance = new MySqlDb();
+    public static getInstance(): MySqlDB {
+        if (!MySqlDB._instance) {
+            MySqlDB._instance = new MySqlDB();
         }
-        return MySqlDb._instance;
+
+        return MySqlDB._instance;
     }
 
     create(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, data: any): any {
@@ -71,5 +72,15 @@ export class MySqlDb implements IDBModel{
                 timestamps: false
             }
         )
+    }
+
+    async selectQuery(sql: string, replacements: any) {
+        return await this._adapter.query(
+            sql,
+            {
+                type: Sequelize.QueryTypes.SELECT,
+                replacements: replacements
+            }
+        );   
     }
 }
