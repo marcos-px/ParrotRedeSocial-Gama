@@ -7,14 +7,11 @@ export class UserRoutes extends CommonRoutesConfig{
     }
 
     configureRoutes(): express.Application {
-        this.app.route(`/users`)
-        .get() // listar usuários
+        this.app.route(`/login`)
+        .post(); // logar no sistema
 
-        this.app.route(`/user/:idUser`)
-        .all()//valida se conta existe ou não
-        .put()//atualizar usuário
-        .delete()//deletar usuário
-        .get();//pegar conta por id
+        this.app.route(`/register`)
+        .post();//registrar conta nova
 
         return this.app
     }
