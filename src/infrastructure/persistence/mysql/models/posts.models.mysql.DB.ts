@@ -1,5 +1,5 @@
 import * as Sequelize from "sequelize";
-import { MySqlDB } from "../mysql.db";
+import { MySqlDB } from "../mysql.DB";
 
 export default MySqlDB.getInstance().createModel('post',{
     idpost:{
