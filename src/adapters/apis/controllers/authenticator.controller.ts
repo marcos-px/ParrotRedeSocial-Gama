@@ -1,15 +1,14 @@
 // import debug from "debug";
 // import { Request, Response } from "express";
-// import * as userServices from '../services/login.auth.services'
 // import { getErrorMessage } from "../utils/errors.util";
-// import { CustomRequest } from "../middlewares/auth.middleware";
+// import { auth } from "../middlewares/auth.middleware";
 
 // export const login = async (req: Request, res: Response) => {
 //     try {
-//         const procuraUsuario = await userServices.login(req.body);
-//         res.status(200).send(procuraUsuario)
+//         const procuraUsuario = await auth.(req.body);
+//         // res.status(200).send(procuraUsuario)
 //     } catch (error) {
-//         return res.status(500).send(getErrorMessage(error);)
+//         return res.status(500).send(getErrorMessage(error))
 //     }
 // };
 

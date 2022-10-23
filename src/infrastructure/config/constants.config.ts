@@ -3,8 +3,18 @@ export default {
         MESSAGES: {
             ERROR: {
                 INCORRECT_EMAIL: `E-mail não encontrado, verifique e tente novamente.`,
-                INCORRECT_PASSWORD: `Senha incorreta, verifique e tente novamente.`
+                INCORRECT_PASSWORD: `Senha incorreta, verifique e tente novamente.`,
+                AUTHORIZATION_NO: `Usuário não autorizado, verifique se está logado e tente novamente.`
             }
         }
-    }
+    },
+    MIDDLEWARE:{
+        MESSAGES:{
+            ERROR:{
+                BODYFIELDS_NO: `Alguns campos não foram preenchidos, verifique e tente novamente.`,
+                USERSEXISTS_NO: `Não encontramos o usuário {req.params.iduser}. Verifique e tente novamente`,
+                USERSREPEATED_YES: `Usuário {rId} já existe!`
+            }
+        }
+    },
 }

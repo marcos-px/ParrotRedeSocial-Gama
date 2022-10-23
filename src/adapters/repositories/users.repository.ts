@@ -8,6 +8,9 @@ import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/mod
 import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/entitiestoModel.mysql.DB";
 
 export class UsersRepository implements IUsersRepository{
+    static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
+      throw new Error('Method not implemented.');
+    }
     constructor(
         private _database: IDBModel,
         private _modelUsers: any,

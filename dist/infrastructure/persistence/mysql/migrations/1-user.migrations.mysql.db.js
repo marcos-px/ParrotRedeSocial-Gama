@@ -33,7 +33,7 @@ exports.default = {
                 field: 'iduser',
                 autoIncrement: true
             },
-            nome: Sequelize.DataTypes.STRING,
+            name: Sequelize.DataTypes.STRING,
             email: Sequelize.DataTypes.STRING,
             apartment: Sequelize.DataTypes.INTEGER,
             password: Sequelize.DataTypes.STRING,
