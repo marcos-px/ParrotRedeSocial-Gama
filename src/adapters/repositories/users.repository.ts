@@ -4,6 +4,7 @@ import { MySqlDB } from "../../infrastructure/persistence/mysql/mysql.DB";
 import { IUsersRepository } from "../../domain/repositories/users.repositories";
 import * as Sequelize from "sequelize";
 import userModel from "../../infrastructure/persistence/mysql/models/user.models.mysql.DB";
+import postsModel from "../../infrastructure/persistence/mysql/models/posts.models.mysql.DB";
 import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/users.modelstoEntities.mysql.DB";
 import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/users.entitiestoModel.mysql.DB";
 import bcrypt from "bcryptjs";
@@ -32,7 +33,7 @@ export class UsersRepository implements IUsersRepository{
         resource.iduser = modelUsers;
         return resource
     }
-
+    
     async deletedById(resourceId: number): Promise<void> {
         await this._database.delete(this._modelUsers, {iduser:resourceId})
     }
@@ -49,8 +50,8 @@ export class UsersRepository implements IUsersRepository{
         await this._database.update(userModel, user);
         return resource;
     }
-    }
 
+}
     export default new UsersRepository(
         MySqlDB.getInstance(),
         userModel

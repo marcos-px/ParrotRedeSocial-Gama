@@ -6,21 +6,21 @@ export default {
             idpost: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
-                field: 'iduser',
                 autoIncrement: true
             },
-            iduser: {
-              type: Sequelize.DataTypes.INTEGER,
-              references:{
-                model: {
-                    tableName: 'users'
-                },
-                key: 'iduser'
-              }  
-            },
+            
             content: Sequelize.DataTypes.STRING,
             createdAt: Sequelize.DataTypes.DATE,
             updatedAt: Sequelize.DataTypes.DATE,
+            iduser: {
+                type: Sequelize.DataTypes.INTEGER,
+                references:{
+                  model: {
+                      tableName: 'users'
+                  },
+                  key: 'iduser'
+                }  
+              },
         });
     },
     down: (queryInterface: Sequelize.QueryInterface) => {
