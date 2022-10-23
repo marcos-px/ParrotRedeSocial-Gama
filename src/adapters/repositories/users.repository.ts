@@ -11,7 +11,7 @@ export class UsersRepository implements IUsersRepository{
     constructor(
         private _database: IDBModel,
         private _modelUsers: any,
-        )
+        ){}
         
     async readById(resourceId: number): Promise<IUsersEntity | undefined> {
         try {
