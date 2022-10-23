@@ -3,6 +3,10 @@ import debug from 'debug';
 import bcrypt from 'bcryptjs'
 import constantsConfig from '../../../infrastructure/config/constants.config';
 import readUserUsecase from '../../../domain/usecases/users/read.user.usecase';
+import logger from '../../../infrastructure/logs/winston.logs';
+import multer from 'multer';
+import path from 'path';
+import usersRepository from '../../repositories/users.repository';
 
 const log: debug.IDebugger = debug('app:users-middleware');
 
@@ -20,8 +24,10 @@ class UsersMiddlerare{
             iduser: Number(req.body.iduser)
         });
         if(users){
+            logger.info([' Usuário encontrato: ', users])
             next();
         } else{
+            logger.error(`Usuário ${req.params.iduser} não existe`)
             res.status(400).send({error: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.USERSEXISTS_NO})
         }
     }
@@ -36,6 +42,19 @@ class UsersMiddlerare{
         } else{
             res.status(400).send({error: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.USERSREPEATED_YES})
         }
+    }
+
+    uploadFile(){
+        return multer({
+            storage: multer.diskStorage({
+                destination: (req, file, cb)=>{
+                    cb(null, path.resolve("uploads"));
+                },
+                filename: (req, file, cb)=>[
+                    cb(null, `${Date.now()}-${file.originalname.toLocaleLowerCase()}`)
+                ]
+            })
+        })
     }
 }
 

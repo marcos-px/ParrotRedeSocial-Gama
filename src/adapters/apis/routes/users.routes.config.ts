@@ -21,18 +21,18 @@ export class UserRoutes extends CommonRoutesConfig{
         ) // listar usuários
 
         this.app.route(`/user/:idUser`)
-        .all(auth,
+        .all(//auth,
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
-            auth,
+            //auth,
             usersMiddlewares.validateRequiredAccountBodyFields,
             usersControllers.updateUsers)//atualizar usuário
         .delete(
-            auth,
+            //auth,
             usersMiddlewares.validateUserExists,
             usersControllers.removeUsers)//deletar usuário
         .get(
-            auth,
+            //auth,
             usersControllers.getUsersById
             );//pegar conta por id
 
