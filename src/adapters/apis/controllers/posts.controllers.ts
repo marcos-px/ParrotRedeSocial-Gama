@@ -18,7 +18,7 @@ class PostsController {
             res.status(200).send(posts);
         } catch (error) {
             console.error(error);
-            res.status(404).send("Deu ruim ao criar usuário.")
+            res.status(404).send("Deu ruim ao listar usuário.")
         }
 };
 

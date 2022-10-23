@@ -47,3 +47,4 @@
 {"level":"info","message":[" Usuário encontrado: ",{"apartment":null,"createdAt":null,"email":null,"iduser":13,"name":null,"password":null,"updatedAt":null}],"timestamp":"2022-10-23T19:04:04.456Z"}
 {"level":"error","message":"Usuário 14 não existe","timestamp":"2022-10-23T19:04:06.429Z"}
 {"level":"info","message":[" Usuário encontrado: ",{"apartment":null,"createdAt":null,"email":null,"iduser":1,"name":"MARCOS","password":null,"updatedAt":null}],"timestamp":"2022-10-23T20:35:28.403Z"}
+{"level":"error","message":"Usuário 1 não existe","timestamp":"2022-10-23T21:52:33.431Z"}
