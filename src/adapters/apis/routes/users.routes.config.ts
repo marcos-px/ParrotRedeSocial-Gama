@@ -13,7 +13,7 @@ export class UserRoutes extends CommonRoutesConfig{
         this.app.route(`/user`)
         .post(
             usersControllers.createUser,
-        ) // listar usuários
+        ) 
 
         this.app.route(`/users`)
         .get(//auth,

@@ -26,29 +26,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Sequelize = __importStar(require("sequelize"));
 exports.default = {
     up: (queryInterface) => {
-        return queryInterface.createTable('users', {
+        return queryInterface.createTable('post', {
             idpost: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
                 field: 'iduser',
                 autoIncrement: true
             },
-            iduser: {
-                type: Sequelize.DataTypes.INTEGER,
-                references: {
-                    model: {
-                        tableName: 'user'
-                    },
-                    key: 'iduser'
-                }
-            },
+            // user_id:{
+            //     type: Sequelize.DataTypes.INTEGER,
+            //     references:{
+            //         model: "users",
+            //         key: "iduser"
+            //     }
+            // },
             content: Sequelize.DataTypes.STRING,
             createdAt: Sequelize.DataTypes.DATE,
             updatedAt: Sequelize.DataTypes.DATE,
         });
     },
     down: (queryInterface) => {
-        return queryInterface.dropTable('users');
+        return queryInterface.dropTable('post');
     }
 };
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMi1wb3N0cy5taWdyYXRpb25zLm15c3FsLmRiLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vc3JjL2luZnJhc3RydWN0dXJlL3BlcnNpc3RlbmNlL215c3FsL21pZ3JhdGlvbnMvMi1wb3N0cy5taWdyYXRpb25zLm15c3FsLmRiLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxxREFBdUM7QUFFdkMsa0JBQWU7SUFDWCxFQUFFLEVBQUUsQ0FBQyxjQUF3QyxFQUFFLEVBQUU7UUFDN0MsT0FBTyxjQUFjLENBQUMsV0FBVyxDQUFDLE9BQU8sRUFBRTtZQUN2QyxNQUFNLEVBQUU7Z0JBQ0osSUFBSSxFQUFFLFNBQVMsQ0FBQyxTQUFTLENBQUMsT0FBTztnQkFDakMsVUFBVSxFQUFFLElBQUk7Z0JBQ2hCLEtBQUssRUFBRSxRQUFRO2dCQUNmLGFBQWEsRUFBRSxJQUFJO2FBQ3RCO1lBQ0QsTUFBTSxFQUFFO2dCQUNOLElBQUksRUFBRSxTQUFTLENBQUMsU0FBUyxDQUFDLE9BQU87Z0JBQ2pDLFVBQVUsRUFBQztvQkFDVCxLQUFLLEVBQUU7d0JBQ0gsU0FBUyxFQUFFLE1BQU07cUJBQ3BCO29CQUNELEdBQUcsRUFBRSxRQUFRO2lCQUNkO2FBQ0Y7WUFDRCxPQUFPLEVBQUUsU0FBUyxDQUFDLFNBQVMsQ0FBQyxNQUFNO1lBQ25DLFNBQVMsRUFBRSxTQUFTLENBQUMsU0FBUyxDQUFDLElBQUk7WUFDbkMsU0FBUyxFQUFFLFNBQVMsQ0FBQyxTQUFTLENBQUMsSUFBSTtTQUN0QyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBQ0QsSUFBSSxFQUFFLENBQUMsY0FBd0MsRUFBRSxFQUFFO1FBQy9DLE9BQU8sY0FBYyxDQUFDLFNBQVMsQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUM3QyxDQUFDO0NBQ0osQ0FBQSJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiMi1wb3N0cy5taWdyYXRpb25zLm15c3FsLmRiLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vc3JjL2luZnJhc3RydWN0dXJlL3BlcnNpc3RlbmNlL215c3FsL21pZ3JhdGlvbnMvMi1wb3N0cy5taWdyYXRpb25zLm15c3FsLmRiLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxxREFBdUM7QUFFdkMsa0JBQWU7SUFDWCxFQUFFLEVBQUUsQ0FBQyxjQUF3QyxFQUFFLEVBQUU7UUFDN0MsT0FBTyxjQUFjLENBQUMsV0FBVyxDQUFDLE1BQU0sRUFBRTtZQUN0QyxNQUFNLEVBQUU7Z0JBQ0osSUFBSSxFQUFFLFNBQVMsQ0FBQyxTQUFTLENBQUMsT0FBTztnQkFDakMsVUFBVSxFQUFFLElBQUk7Z0JBQ2hCLEtBQUssRUFBRSxRQUFRO2dCQUNmLGFBQWEsRUFBRSxJQUFJO2FBQ3RCO1lBQ0QsWUFBWTtZQUNaLHlDQUF5QztZQUN6QyxtQkFBbUI7WUFDbkIsMEJBQTBCO1lBQzFCLHdCQUF3QjtZQUN4QixRQUFRO1lBQ1IsS0FBSztZQUNMLE9BQU8sRUFBRSxTQUFTLENBQUMsU0FBUyxDQUFDLE1BQU07WUFDbkMsU0FBUyxFQUFFLFNBQVMsQ0FBQyxTQUFTLENBQUMsSUFBSTtZQUNuQyxTQUFTLEVBQUUsU0FBUyxDQUFDLFNBQVMsQ0FBQyxJQUFJO1NBQ3RDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFDRCxJQUFJLEVBQUUsQ0FBQyxjQUF3QyxFQUFFLEVBQUU7UUFDL0MsT0FBTyxjQUFjLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxDQUFDO0lBQzVDLENBQUM7Q0FDSixDQUFBIn0=

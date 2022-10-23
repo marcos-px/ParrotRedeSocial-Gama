@@ -4,8 +4,8 @@ import { MySqlDB } from "../../infrastructure/persistence/mysql/mysql.DB";
 import { IUsersRepository } from "../../domain/repositories/users.repositories";
 import * as Sequelize from "sequelize";
 import userModel from "../../infrastructure/persistence/mysql/models/user.models.mysql.DB";
-import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/modelstoEntities.mysql.DB";
-import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/entitiestoModel.mysql.DB";
+import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/users.modelstoEntities.mysql.DB";
+import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/users.entitiestoModel.mysql.DB";
 import bcrypt from "bcryptjs";
 
 export class UsersRepository implements IUsersRepository{
@@ -29,7 +29,7 @@ export class UsersRepository implements IUsersRepository{
     async create(resource: IUsersEntity): Promise<IUsersEntity> {
         const user = entitiestoModel(resource);
         const modelUsers = await this._database.create(this._modelUsers, user);
-        resource.iduser = modelUsers.null;
+        resource.iduser = modelUsers;
         return resource
     }
 

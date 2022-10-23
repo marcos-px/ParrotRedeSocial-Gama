@@ -24,11 +24,11 @@ class UsersMiddlerare{
             iduser: Number(req.params.iduser)
         });
         if(users){
-            logger.info([' Usuário encontrato: ', users])
+            logger.info([' Usuário encontrado: ', users])
             next();
         } else{
             logger.error(`Usuário ${req.params.iduser} não existe`)
-            res.status(400).send({error: `Não encontramos o usuário ${req.params.iduser}. Verifique e tente novamente`})
+            res.status(400).send({error: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.USERSEXISTS_NO})
         }
     }
 

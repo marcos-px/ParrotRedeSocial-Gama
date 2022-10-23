@@ -4,5 +4,7 @@ export interface IUsersEntity{
     email:string,
     apartment:number,
     password:string,
+    createdAt?:Date,
+    updatedAt?:Date,
     photo:string
 }
