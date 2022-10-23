@@ -10,6 +10,7 @@ export default function (user:any): IUsersEntity | undefined {
         apartment: user.apartment,
         email: user.email,
         password: user.password,
+        photo: user.photo
     }
 
     if(user.logado){
@@ -18,6 +19,7 @@ export default function (user:any): IUsersEntity | undefined {
         (userGeneral as IUsersEntity).apartment = user.apartment;
         (userGeneral as IUsersEntity).email = user.email;
         (userGeneral as IUsersEntity).password = user.password;
+        (userGeneral as IUsersEntity).photo = user.photo;
     }
 
     return (userGeneral as IUsersEntity);

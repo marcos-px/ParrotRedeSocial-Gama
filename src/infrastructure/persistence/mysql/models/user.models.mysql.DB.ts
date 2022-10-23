@@ -5,6 +5,7 @@ export default MySqlDB.getInstance().createModel('user',{
     iduser:{
         type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
+        autoIncrement: true
     },
     name: Sequelize.DataTypes.STRING,
     email: Sequelize.DataTypes.STRING,

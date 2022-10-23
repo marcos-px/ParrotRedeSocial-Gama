@@ -3,5 +3,6 @@ export interface IUsersEntity{
     name:string,
     email:string,
     apartment:number,
-    password:string
+    password:string,
+    photo:string
 }

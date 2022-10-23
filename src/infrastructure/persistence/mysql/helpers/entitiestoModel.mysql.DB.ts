@@ -6,7 +6,8 @@ export default function (user: IUsersEntity){
         name: user.name,
         email: user.email,
         apartment: user.apartment,
-        password: user.password
+        password: user.password,
+        photo: user.photo,
     }
 
     return {

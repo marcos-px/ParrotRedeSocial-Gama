@@ -6,6 +6,7 @@ import * as Sequelize from "sequelize";
 import userModel from "../../infrastructure/persistence/mysql/models/user.models.mysql.DB";
 import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/modelstoEntities.mysql.DB";
 import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/entitiestoModel.mysql.DB";
+import bcrypt from "bcryptjs";
 
 export class UsersRepository implements IUsersRepository{
     static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
@@ -27,8 +28,7 @@ export class UsersRepository implements IUsersRepository{
     
     async create(resource: IUsersEntity): Promise<IUsersEntity> {
         const user = entitiestoModel(resource);
-        const modelUsers = await this._database.createModel(this._modelUsers, user)
-
+        const modelUsers = await this._database.createModel(this._modelUsers, user);
         resource.iduser = modelUsers.null;
         return resource
     }

@@ -6,6 +6,7 @@ import readUserUsecase from '../../../domain/usecases/users/read.user.usecase';
 import createUsersUsecase from '../../../domain/usecases/users/create.users.usecase';
 import updateUserUsecase from '../../../domain/usecases/users/update.user.usecase';
 import deleteUserUsecase from '../../../domain/usecases/users/delete.user.usecase';
+import bcrypt from 'bcryptjs'
 
 const log: debug.Debugger = debug('app:users-controller');
 
@@ -24,7 +25,11 @@ class UsersController {
 
     async createUser(req: express.Request, res: express.Response){
         const users = await createUsersUsecase.execute(req.body);
-        log(users);
+            log(users);
+        
+        // let { name, email, apartment, password} = req.body
+        // const keyHash = await bcrypt.hash(password,10);
+        // password = keyHash
         res.status(201).send(users);
     }
 
