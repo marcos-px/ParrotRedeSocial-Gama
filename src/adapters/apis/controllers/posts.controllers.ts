@@ -1,6 +1,7 @@
 import express from 'express';
 import debug from 'debug'
 import userModels from "../../../infrastructure/persistence/mysql/models/user.models.mysql.DB";
+import usersEntities from '../../../infrastructure/persistence/mysql/helpers/users.entitiestoModel.mysql.DB';
 import bcrypt from 'bcryptjs'
 import constantsConfig from '../../../infrastructure/config/constants.config';
 import listPostUsecase from '../../../domain/usecases/posts/list.post.usecase';
@@ -32,22 +33,18 @@ class PostsController {
         } 
     };
 
-    async createUser(req: express.Request, res: express.Response){
-        const posts = await createPostUsecase.execute(req.body);
+    async createPost(req: express.Request, res: express.Response){
+        const posts = createPostUsecase.execute(req.body);
             log(posts);
-        
-        // let { name, email, apartment, password} = req.body
-        // const keyHash = await bcrypt.hash(password,10);
-        // password = keyHash
         res.status(201).send(posts);
     }
 
-    async updateUsers(req: express.Request, res: express.Response){
+    async updatePosts(req: express.Request, res: express.Response){
         const posts = await updatePostUsecase.execute(req.body);
         res.status(200).send(posts)
     }
 
-    async removeUsers(req: express.Request, res: express.Response){
+    async removePosts(req: express.Request, res: express.Response){
         await deletePostUsecase.execute({
             iduser: Number(req.params.iduser)
         });
