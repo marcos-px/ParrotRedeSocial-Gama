@@ -1,5 +1,5 @@
 export interface IUsersEntity{
-    iduser:number,
+    iduser?:number,
     name:string,
     email:string,
     apartment:number,

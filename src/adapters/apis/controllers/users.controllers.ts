@@ -7,6 +7,7 @@ import createUsersUsecase from '../../../domain/usecases/users/create.users.usec
 import updateUserUsecase from '../../../domain/usecases/users/update.user.usecase';
 import deleteUserUsecase from '../../../domain/usecases/users/delete.user.usecase';
 import bcrypt from 'bcryptjs'
+import constantsConfig from '../../../infrastructure/config/constants.config';
 
 const log: debug.Debugger = debug('app:users-controller');
 
@@ -20,7 +21,15 @@ class UsersController {
         const users = await readUserUsecase.execute({
             iduser: Number(req.params.iduser)
         });
-        res.status(200).send(users);
+        try {
+            if (users){
+                res.status(200).send(users);
+            }
+            return res.json(users)
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({ message: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.SERVIDORERROR_YES})
+        } 
     };
 
     async createUser(req: express.Request, res: express.Response){

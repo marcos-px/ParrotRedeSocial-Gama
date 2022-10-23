@@ -17,7 +17,7 @@ class UserRoutes extends common_routes_config_1.CommonRoutesConfig {
         this.app.route(`/users`)
             .get(//auth,
         users_controllers_1.default.listUsers); // listar usuários
-        this.app.route(`/user/:idUser`)
+        this.app.route(`/user/:iduser`)
             .all(//auth,
         users_middlewares_1.default.validateUserExists) //valida se conta existe ou não
             .put(

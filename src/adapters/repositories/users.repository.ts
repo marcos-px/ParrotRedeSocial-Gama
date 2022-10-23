@@ -14,7 +14,7 @@ export class UsersRepository implements IUsersRepository{
     }
     constructor(
         private _database: IDBModel,
-        private _modelUsers: any,
+        private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
         ){}
         
     async readById(resourceId: number): Promise<IUsersEntity | undefined> {
@@ -22,13 +22,13 @@ export class UsersRepository implements IUsersRepository{
             const user = await this._database.read(this._modelUsers, resourceId)
             return modelstoEntities(user);
         } catch (error) {
-            throw new Error((error as Error).message);
+            console.error(error);
         }
     }
     
     async create(resource: IUsersEntity): Promise<IUsersEntity> {
         const user = entitiestoModel(resource);
-        const modelUsers = await this._database.createModel(this._modelUsers, user);
+        const modelUsers = await this._database.create(this._modelUsers, user);
         resource.iduser = modelUsers.null;
         return resource
     }

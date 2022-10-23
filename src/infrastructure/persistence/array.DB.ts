@@ -22,7 +22,7 @@ export class ArrayDB implements IDB {
             this._data[type] = [];
         }
 
-        data.indexId = this._data[type] ? this._data[type].lenght:0;
+        data.iduser = this._data[type] ? this._data[type].lenght:0;
         objeto = data;
         this._data[type].push(objeto);
     }
@@ -32,10 +32,10 @@ export class ArrayDB implements IDB {
         
         objeto = data;
 
-        if(objeto.indexId === undefined)
+        if(objeto.iduser === undefined)
             return false;
         
-        this._data[type][objeto.indexId] = objeto;
+        this._data[type][objeto.iduser] = objeto;
 
         return objeto;
     }
@@ -59,15 +59,15 @@ export class ArrayDB implements IDB {
             return false;
         }
 
-        const indexId = this._data.findIndex((objeto: any) => {
-                return objeto.indexId === dataId;
+        const iduser = this._data.findIndex((objeto: any) => {
+                return objeto.iduser === dataId;
         });
         
 
-        if(indexId === undefined)
+        if(iduser === undefined)
             return false;
 
-        this._data[type].splice(indexId, 1);
+        this._data[type].splice(iduser, 1);
 
         return true;
     }
@@ -79,7 +79,7 @@ export class ArrayDB implements IDB {
         }
 
         const data = this._data[type].find((obj: any) => {
-                return obj.indexId === dataId;
+                return obj.iduser === dataId;
         });
 
         if(!data)

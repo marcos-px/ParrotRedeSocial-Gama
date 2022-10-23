@@ -20,7 +20,7 @@ export class UserRoutes extends CommonRoutesConfig{
             usersControllers.listUsers,
         ) // listar usuários
 
-        this.app.route(`/user/:idUser`)
+        this.app.route(`/user/:iduser`)
         .all(//auth,
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
