@@ -33,13 +33,20 @@ class UsersController {
     };
 
     async createUser(req: express.Request, res: express.Response){
-        const users = await createUsersUsecase.execute(req.body);
+        try {
+            const users = await createUsersUsecase.execute(req.body);
             log(users);
         
         // let { name, email, apartment, password} = req.body
         // const keyHash = await bcrypt.hash(password,10);
         // password = keyHash
         res.status(201).send(users);
+        } catch (error) {
+            console.error(error)
+            res.status(400).send(error)
+        }
+        
+        
     }
 
     async updateUsers(req: express.Request, res: express.Response){

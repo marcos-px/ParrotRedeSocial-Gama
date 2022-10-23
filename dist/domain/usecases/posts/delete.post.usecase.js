@@ -19,7 +19,7 @@ class DeleteUserUseCase {
     }
     execute(data) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield this._repository.deletedById(data.iduser);
+            return yield this._repository.deletedById(data.idpost);
         });
     }
 }
