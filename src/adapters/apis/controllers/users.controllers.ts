@@ -25,7 +25,6 @@ class UsersController {
             if (users){
                 res.status(200).send(users);
             }
-            return res.json(users)
         } catch (error) {
             console.log(error);
             return res.status(500).json({ message: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.SERVIDORERROR_YES})
@@ -45,13 +44,12 @@ class UsersController {
             console.error(error)
             res.status(400).send(error)
         }
-        
-        
     }
 
     async updateUsers(req: express.Request, res: express.Response){
-        const users = await updateUserUsecase.execute(req.body);
-        res.status(200).send(users)
+        // let user = await readUserUsecase.execute({iduser: Number(req.params.iduser)})
+        const user = await updateUserUsecase.execute(req.body);
+        res.status(200).send(user)
     }
 
     async removeUsers(req: express.Request, res: express.Response){
@@ -59,6 +57,15 @@ class UsersController {
             iduser: Number(req.params.iduser)
         });
         res.status(204).send();
+    }
+    async createUserBulk(req: express.Request, res: express.Response) {
+        let countUsers = 0;
+        for(countUsers = 0; countUsers < req.body.fileData.length; countUsers++){
+            await createUsersUsecase.execute(req.body.fileData[countUsers]);
+        }
+        res.status(201).send({
+            createdUsers: countUsers
+        });
     }
 }
 

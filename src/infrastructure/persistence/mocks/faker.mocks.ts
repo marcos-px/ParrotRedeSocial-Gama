@@ -1,4 +1,4 @@
-import { IUsersEntity } from "../../../domain/entities/users/users.entity";
+import { IUsersEntity } from "../../../domain/entities/users/users.interface.entity";
 import IMocks from "./mocks.interface";
 import { faker } from "@faker-js/faker"
 import usersRepository from "../../../adapters/repositories/users.repository";
@@ -19,7 +19,7 @@ export default class FakerMocks implements IMocks{
                 email: String(faker.internet.email),
                 apartment:Number(faker.finance.amount()),
                 password: String(faker.internet.password),
-                photo: faker.image.cats()
+                photo: faker.image.people()
             })
         })
         return users;

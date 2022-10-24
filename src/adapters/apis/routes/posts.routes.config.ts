@@ -20,13 +20,12 @@ export class PostsRoutes extends CommonRoutesConfig{
             postsControllers.listPosts,
         ) // listar usuários
 
-        this.app.route(`/posts/:posts`)
+        this.app.route(`/posts/:idpost`)
         .all(//auth,
-            usersMiddlewares.validateUserExists,
             postsControllers.listPosts)//valida se conta existe ou não
         .put(
             //auth,
-            usersMiddlewares.validateRequiredAccountBodyFields,
+            // usersMiddlewares.validateRequiredAccountBodyFields,
             postsControllers.updatePosts)//atualizar usuário
         .delete(
             //auth,

@@ -8,7 +8,8 @@ export default {
                 "name": "John",
                 "email": "john@gmail.com",
                 "apartment":13,
-                "password": "6516sa"
+                "password": "6516sa",
+                
             }
         ])
     },

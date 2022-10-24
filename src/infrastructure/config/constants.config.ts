@@ -21,6 +21,7 @@ export default {
     RETURN:{
         MESSAGES:{
             SENDS:{
+                EMAILINVALID_YES: `Email (req.body.email) não encontrado na nossa base de dados.`
 
             }
         }

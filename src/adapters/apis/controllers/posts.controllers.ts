@@ -1,6 +1,5 @@
 import express from 'express';
 import debug from 'debug'
-
 import bcrypt from 'bcryptjs'
 import constantsConfig from '../../../infrastructure/config/constants.config';
 import listPostUsecase from '../../../domain/usecases/posts/list.post.usecase';
@@ -24,7 +23,7 @@ class PostsController {
 
     async getPostsById(req: express.Request, res: express.Response){
         const posts = await readPostUsecase.execute({
-            idpost: Number(req.params.idpost)
+            idpost: Number(req.params)
         });
         try {
             if (posts){
@@ -39,9 +38,9 @@ class PostsController {
 
     async createPost(req: express.Request, res: express.Response){
         try {
-            const posts = createPostUsecase.execute(req.body);
-            log(posts);
-        res.status(201).send(posts);
+            const post = createPostUsecase.execute(req.body);
+            log(post);
+        res.status(200).send(req.body);
         } catch (error) {
             console.error(error)
             res.status(404).send("Deu ruim ao criar usuário.")
@@ -51,7 +50,7 @@ class PostsController {
     async updatePosts(req: express.Request, res: express.Response){
         const posts = await updatePostUsecase.execute(req.body);
         try {
-            res.status(200).send(posts)
+            res.status(200).send(req.body)
         } catch (error) {
             res.status(404).send("Deu ruim ao atualizar o usuário.")
         }
@@ -60,7 +59,7 @@ class PostsController {
     async removePosts(req: express.Request, res: express.Response){
         try {
             await deletePostUsecase.execute({
-                idpost: Number(req.params.idpost)
+                idpost: Number(req.params)
             });
             res.status(204).send();
         } catch (error) {

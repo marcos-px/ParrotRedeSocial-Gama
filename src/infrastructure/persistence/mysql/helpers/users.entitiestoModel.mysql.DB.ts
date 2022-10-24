@@ -1,4 +1,4 @@
-import { IUsersEntity } from "../../../../domain/entities/users/users.entity";
+import { IUsersEntity } from "../../../../domain/entities/users/users.interface.entity";
 
 export default function (user: IUsersEntity){
     const userGeneral = {

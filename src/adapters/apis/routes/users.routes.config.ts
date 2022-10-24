@@ -25,7 +25,7 @@ export class UserRoutes extends CommonRoutesConfig{
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
             //auth,
-            usersMiddlewares.validateRequiredAccountBodyFields,
+            usersMiddlewares.validateUserExists,
             usersControllers.updateUsers)//atualizar usuário
         .delete(
             //auth,
