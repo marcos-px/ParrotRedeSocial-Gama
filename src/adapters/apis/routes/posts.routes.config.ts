@@ -1,6 +1,6 @@
 import express from "express";
 import postsControllers from "../controllers/posts.controllers";
-import { auth } from "../middlewares/auth.middleware";
+// import { auth } from "../middlewares/auth.middleware";
 import usersMiddlewares from "../middlewares/users.middlewares";
 import { CommonRoutesConfig } from "./common.routes.config";
 

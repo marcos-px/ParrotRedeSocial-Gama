@@ -1,7 +1,7 @@
 import { IUsersEntity } from "../../entities/users/users.interface.entity";
 import usersRepository, { UsersRepository } from "../../../adapters/repositories/users.repository";
 import { IUseCase } from "../usecase.interface";
-import { IUsersRepository } from "../../repositories/users.repositories";
+import { IUsersRepository } from "../../repositories/users.repositories.interface";
 
 class updateUserUsecase implements IUseCase{
     constructor(private _repository: IUsersRepository){}

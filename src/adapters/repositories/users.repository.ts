@@ -1,13 +1,13 @@
 import { IDBModel } from "../../infrastructure/persistence/dbmodel.interface";
-import { IUsersEntity } from "../../domain/entities/users/users.interface.entity";
 import { MySqlDB } from "../../infrastructure/persistence/mysql/mysql.DB";
-import { IUsersRepository } from "../../domain/repositories/users.repositories";
+import { IUsersRepository } from "../../domain/repositories/users.repositories.interface";
 import * as Sequelize from "sequelize";
 import userModel from "../../infrastructure/persistence/mysql/models/user.models.mysql.DB";
 import postsModel from "../../infrastructure/persistence/mysql/models/posts.models.mysql.DB";
 import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/users.modelstoEntities.mysql.DB";
 import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/users.entitiestoModel.mysql.DB";
 import bcrypt from "bcryptjs";
+import { UserEntity } from "../../domain/entities/users/users.entity";
 
 export class UsersRepository implements IUsersRepository{
     // static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
@@ -18,7 +18,7 @@ export class UsersRepository implements IUsersRepository{
         private _modelUsers: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
         ){}
         
-    async readById(resourceId: number): Promise<IUsersEntity | undefined> {
+    async readById(resourceId: number): Promise<UserEntity | undefined> {
         try {
             const user = await this._database.read(this._modelUsers, resourceId,{})
             return modelstoEntities(user);
@@ -27,7 +27,7 @@ export class UsersRepository implements IUsersRepository{
         }
     }
     
-    async create(resource: IUsersEntity): Promise<IUsersEntity> {
+    async create(resource: UserEntity): Promise<UserEntity> {
         const {userGeneral} = entitiestoModel(resource);
         const modelUsers = await this._database.create(this._modelUsers, userGeneral);
         resource.iduser = modelUsers.null;
@@ -38,13 +38,13 @@ export class UsersRepository implements IUsersRepository{
         await this._database.delete(this._modelUsers, {iduser:resourceId})
     }
 
-    async list(): Promise<IUsersEntity[]> {
+    async list(): Promise<UserEntity[]> {
         const user = await this._database.list(this._modelUsers)
         const clients = user.map(modelstoEntities)
         return clients;
     }
 
-    async updateById(resource: IUsersEntity): Promise<IUsersEntity | undefined> {
+    async updateById(resource: UserEntity): Promise<UserEntity | undefined> {
        
         let userModel = await this._database.read(this._modelUsers, resource.iduser!,{});
         const { userGeneral } = entitiestoModel(resource);
