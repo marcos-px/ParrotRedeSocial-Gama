@@ -1,7 +1,7 @@
 import { IDBModel } from "../../infrastructure/persistence/dbmodel.interface";
 import { IPostEntity } from "../../domain/entities/posts/posts.entity";
 import { MySqlDB } from "../../infrastructure/persistence/mysql/mysql.DB";
-import {IPostsRepository} from "../../domain/repositories/posts.repositories.interface"
+import { IPostsRepository } from "../../domain/repositories/posts.repositories.interface";
 import * as Sequelize from "sequelize";
 import postModel from "../../infrastructure/persistence/mysql/models/posts.models.mysql.DB";
 import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/posts.modelstoentities.mysql.DB";

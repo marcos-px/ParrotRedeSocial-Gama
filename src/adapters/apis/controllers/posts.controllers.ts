@@ -17,7 +17,7 @@ class PostsController {
             res.status(200).send(posts);
         } catch (error) {
             console.error(error);
-            res.status(404).send("Deu ruim ao listar usuário.")
+            res.status(404).send("Deu ruim ao listar post.")
         }
 };
 
@@ -43,7 +43,7 @@ class PostsController {
         res.status(200).send(req.body);
         } catch (error) {
             console.error(error)
-            res.status(404).send("Deu ruim ao criar usuário.")
+            res.status(404).send("Deu ruim ao criar post.")
         }
     }
 
@@ -52,7 +52,7 @@ class PostsController {
         try {
             res.status(200).send(req.body)
         } catch (error) {
-            res.status(404).send("Deu ruim ao atualizar o usuário.")
+            res.status(404).send("Deu ruim ao atualizar o post.")
         }
     }
 
@@ -63,7 +63,7 @@ class PostsController {
             });
             res.status(204).send();
         } catch (error) {
-            res.status(404).send("Deu ruim ao deletar o usuário.")
+            res.status(404).send("Deu ruim ao deletar o post.")
         }
 }}
 

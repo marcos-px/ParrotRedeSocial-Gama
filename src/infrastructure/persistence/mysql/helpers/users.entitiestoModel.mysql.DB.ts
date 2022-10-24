@@ -1,4 +1,6 @@
 import { IUsersEntity } from "../../../../domain/entities/users/users.interface.entity";
+//brcrypt
+
 
 export default function (user: IUsersEntity){
     const userGeneral = {

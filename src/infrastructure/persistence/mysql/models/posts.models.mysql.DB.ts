@@ -7,8 +7,6 @@ export default MySqlDB.getInstance().createModel('post',{
         primaryKey: true,
     },
     content: Sequelize.DataTypes.STRING,
-    createdAt: Sequelize.DataTypes.DATE,
-    updatedAt: Sequelize.DataTypes.DATE,
     iduser:{
         type: Sequelize.DataTypes.INTEGER,
         references:{
