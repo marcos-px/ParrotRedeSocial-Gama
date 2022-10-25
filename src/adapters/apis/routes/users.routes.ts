@@ -43,7 +43,6 @@ export class UserRoutes extends CommonRoutesConfig{
                 usersControllers.loginBy
                 
             )
-
         return this.app
     }
 }

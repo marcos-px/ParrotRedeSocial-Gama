@@ -67,7 +67,7 @@ class UsersController {
                 name: user.name,
                 email: user.email,
             }, authConfig.jwtSecret)
-           return res.status(200).send(user)    
+            return res.status(200).send(user)    
         } catch (error) {
             return res.status(500).send(error)
         }

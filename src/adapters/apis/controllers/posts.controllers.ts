@@ -18,7 +18,7 @@ class PostsController {
             debug.log(posts)
         } catch (error) {
             console.error(error);
-            res.status(404).send("Deu ruim ao listar post.")
+            res.status(404).send({messages: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.ERRORLIST_YES})
         }
 };
 
@@ -33,7 +33,7 @@ class PostsController {
             return res.json(posts)
         } catch (error) {
             console.log(error);
-            return res.status(500).json({ message: "Deu ruim ao buscar o post por id."})
+            return res.status(500).json({ messages: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.ERRORGETBYID_YES})
         } 
     };
 
@@ -44,7 +44,7 @@ class PostsController {
         res.status(200).send(req.body);
         } catch (error) {
             console.error(error)
-            res.status(404).send("Deu ruim ao criar post.")
+            res.status(404).send({ messages: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.ERRORCREATED_YES})
         }
     }
 
@@ -53,7 +53,7 @@ class PostsController {
         try {
             res.status(200).send(req.body)
         } catch (error) {
-            res.status(404).send("Deu ruim ao atualizar o post.")
+            res.status(404).send({ messages: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.ERRORUPDATED_YES})
         }
     }
 
@@ -64,7 +64,7 @@ class PostsController {
             });
             res.status(204).send();
         } catch (error) {
-            res.status(404).send("Deu ruim ao deletar o post.")
+            res.status(404).send({ messages: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.ERRORDELETED_YES})
         }
 }}
 

@@ -57,11 +57,14 @@ export class UsersRepository implements IUsersRepository{
         
     }
 
+    
+
     async login(resource: IUsersEntity): Promise<IUsersEntity> {
         const { userGeneral } = entitiestoModel(resource)
         const login = await this._database.login(this._modelUsers, userGeneral)
         return login
     }
+
 
 }
     export default new UsersRepository(

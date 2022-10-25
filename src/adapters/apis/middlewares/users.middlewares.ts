@@ -56,9 +56,10 @@ class UsersMiddlerare{
             next()
         } else{
             logger.error(['Senha inválida!'])
-            res.status(401).send({message: "Senha ou e-mail inválidos"})
+            res.status(401).send({message: constantsConfig.RETURN.MESSAGES.SENDS.KEYANDEMAILINVALID_YES})
         }
     }
+
 
     uploadFile(){
         return multer({
