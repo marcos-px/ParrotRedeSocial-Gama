@@ -78,7 +78,7 @@ class UsersMiddlerare{
             name: Joi.string().required(),
             email: Joi.string().email().required(),
             apartment: Joi.number().required(),
-            password: Joi.string().min(8).regex(/[a-zA-Z0-9]{3,30}/).required(),
+            password: Joi.string().min(8).required(),
             photo: Joi.string().required(),
 
         })

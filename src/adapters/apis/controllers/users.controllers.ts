@@ -38,11 +38,7 @@ class UsersController {
         try {
             const users = await createUsersUsecase.execute(req.body);
             log(users);
-        
-        // let { name, email, apartment, password} = req.body
-        // const keyHash = await bcrypt.hash(password,10);
-        // password = keyHash
-        res.status(201).send(users);
+        res.status(201).send(req.params.indexId);
         } catch (error) {
             console.error(error)
             res.status(400).send(error)

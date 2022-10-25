@@ -16,12 +16,12 @@ export class UserRoutes extends CommonRoutesConfig{
         ) // listar usuários,
         this.app.route(`/register`)
         .post(
-            usersMiddlewares.ValidationCreateUser,
+            // usersMiddlewares.ValidationCreateUser,
             usersMiddlewares.validateUserRepeated,
             usersControllers.createUser,
         )
 
-        this.app.route(`/users/:iduser`)
+        this.app.route(`/users/:indexId`)
         .all(//auth,
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
@@ -39,7 +39,7 @@ export class UserRoutes extends CommonRoutesConfig{
             
         this.app.route(`/login`)
             .post(
-                usersMiddlewares.loginValid,
+                // usersMiddlewares.loginValid,
                 usersControllers.loginBy
                 
             )

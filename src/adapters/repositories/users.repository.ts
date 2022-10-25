@@ -31,8 +31,8 @@ export class UsersRepository implements IUsersRepository{
     
     async create(resource: UserEntity): Promise<UserEntity> {
         const {userGeneral} = entitiestoModel(resource);
-        const modelUsers = await this._database.create(this._modelUsers, userGeneral);
-        resource.indexId = modelUsers.null;
+        await this._database.create(this._modelUsers, userGeneral);
+        // resource.indexId = modelUsers.null;
         return resource
     }
     

@@ -10,6 +10,8 @@ import { UserRoutes } from "../../adapters/apis/routes/users.routes";
 import { PostsRoutes } from "../../adapters/apis/routes/posts.routes";
 import { CommonRoutesConfig } from "../../adapters/apis/routes/common.routes.config";
 import path from "path";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
 const app: express.Application = express();
 const server: http.Server = http.createServer();
@@ -22,6 +24,9 @@ app.use(express.urlencoded());
 app.use(cors());
 // app.use(express.static('uploads'))
 app.use('/uploads', express.static(path.resolve('uploads')))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : false}));
+app.use(cookieParser());
 
 
 const loggerOptions: expressWinston.LoggerOptions = {
