@@ -5,12 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "server": "lite-server --baseDir=dist",
-    "start": "tsc && node --unhandled-rejections=strict -r dotenv/config ./dist/infrastructure/app/app.js concurrently \"npm run watch\" \"npm run server\"" ,
-    "compile":"tsc",
+    "start": "tsc && node --unhandled-rejections=strict -r dotenv/config ./dist/src/infrastructure/app/app.js",
     "debug": "set DEBUG=* && npm run start",
-    "mocks": "tsc && node ./dist/infrastructure/persistence/mocks/mocks.js",
-    "watch":"tsc - w"
+    "mocks": "tsc && node ./dist/infrastructure/persistence/mocks/mocks.js"
   },
   "repository": {
     "type": "git",

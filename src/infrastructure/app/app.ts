@@ -9,7 +9,7 @@ import{ debug } from "debug";
 import { UserRoutes } from "../../adapters/apis/routes/users.routes.config";
 import { PostsRoutes } from "../../adapters/apis/routes/posts.routes.config";
 import { CommonRoutesConfig } from "../../adapters/apis/routes/common.routes.config";
-
+import path from "path";
 
 const app: express.Application = express();
 const server: http.Server = http.createServer();
@@ -20,6 +20,9 @@ const debugLog: debug.IDebugger = debug('app');
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cors());
+// app.use(express.static('uploads'))
+app.use('/uploads', express.static(path.resolve('uploads')))
+
 
 const loggerOptions: expressWinston.LoggerOptions = {
     transports: [new winston.transports.Console()],

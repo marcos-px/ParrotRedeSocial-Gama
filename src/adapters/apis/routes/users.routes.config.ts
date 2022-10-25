@@ -10,22 +10,20 @@ export class UserRoutes extends CommonRoutesConfig{
     }
 
     configureRoutes(): express.Application {
-        this.app.route(`/user`)
-        .post(
-            usersControllers.createUser,
-        ) 
-
         this.app.route(`/users`)
         .get(//auth,
             usersControllers.listUsers,
-        ) // listar usuários
+        ) // listar usuários,
+        .post(
+            usersControllers.createUser,
+        )
 
-        this.app.route(`/user/:iduser`)
+        this.app.route(`/users/:iduser`)
         .all(//auth,
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
             //auth,
-            usersMiddlewares.validateUserExists,
+            // usersMiddlewares.validateUserExists,
             usersControllers.updateUsers)//atualizar usuário
         .delete(
             //auth,

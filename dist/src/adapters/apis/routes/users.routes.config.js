@@ -13,17 +13,17 @@ class UserRoutes extends common_routes_config_1.CommonRoutesConfig {
         super(app, 'UserRoutes');
     }
     configureRoutes() {
-        this.app.route(`/user`)
-            .post(users_controllers_1.default.createUser);
         this.app.route(`/users`)
             .get(//auth,
-        users_controllers_1.default.listUsers); // listar usuários
-        this.app.route(`/user/:iduser`)
+        users_controllers_1.default.listUsers) // listar usuários,
+            .post(users_controllers_1.default.createUser);
+        this.app.route(`/users/:iduser`)
             .all(//auth,
         users_middlewares_1.default.validateUserExists) //valida se conta existe ou não
             .put(
         //auth,
-        users_middlewares_1.default.validateUserExists, users_controllers_1.default.updateUsers) //atualizar usuário
+        // usersMiddlewares.validateUserExists,
+        users_controllers_1.default.updateUsers) //atualizar usuário
             .delete(
         //auth,
         users_middlewares_1.default.validateUserExists, users_controllers_1.default.removeUsers) //deletar usuário
@@ -34,4 +34,4 @@ class UserRoutes extends common_routes_config_1.CommonRoutesConfig {
     }
 }
 exports.UserRoutes = UserRoutes;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlcnMucm91dGVzLmNvbmZpZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9hZGFwdGVycy9hcGlzL3JvdXRlcy91c2Vycy5yb3V0ZXMuY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUNBLHlGQUFnRTtBQUNoRSx5REFBeUQ7QUFDekQseUZBQWdFO0FBQ2hFLGlFQUE0RDtBQUU1RCxNQUFhLFVBQVcsU0FBUSx5Q0FBa0I7SUFDOUMsWUFBWSxHQUF3QjtRQUNoQyxLQUFLLENBQUMsR0FBRyxFQUFFLFlBQVksQ0FBQyxDQUFDO0lBQzdCLENBQUM7SUFFRCxlQUFlO1FBQ1gsSUFBSSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsT0FBTyxDQUFDO2FBQ3RCLElBQUksQ0FDRCwyQkFBZ0IsQ0FBQyxVQUFVLENBQzlCLENBQUE7UUFFRCxJQUFJLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxRQUFRLENBQUM7YUFDdkIsR0FBRyxDQUFDLE9BQU87UUFDUiwyQkFBZ0IsQ0FBQyxTQUFTLENBQzdCLENBQUEsQ0FBQyxrQkFBa0I7UUFFcEIsSUFBSSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsZUFBZSxDQUFDO2FBQzlCLEdBQUcsQ0FBQyxPQUFPO1FBQ1IsMkJBQWdCLENBQUMsa0JBQWtCLENBQUMsQ0FBQSwrQkFBK0I7YUFDdEUsR0FBRztRQUNBLE9BQU87UUFDUCwyQkFBZ0IsQ0FBQyxrQkFBa0IsRUFDbkMsMkJBQWdCLENBQUMsV0FBVyxDQUFDLENBQUEsbUJBQW1CO2FBQ25ELE1BQU07UUFDSCxPQUFPO1FBQ1AsMkJBQWdCLENBQUMsa0JBQWtCLEVBQ25DLDJCQUFnQixDQUFDLFdBQVcsQ0FBQyxDQUFBLGlCQUFpQjthQUNqRCxHQUFHO1FBQ0EsT0FBTztRQUNQLDJCQUFnQixDQUFDLFlBQVksQ0FDNUIsQ0FBQyxDQUFBLG9CQUFvQjtRQUUxQixPQUFPLElBQUksQ0FBQyxHQUFHLENBQUE7SUFDbkIsQ0FBQztDQUNKO0FBbENELGdDQWtDQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlcnMucm91dGVzLmNvbmZpZy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9hZGFwdGVycy9hcGlzL3JvdXRlcy91c2Vycy5yb3V0ZXMuY29uZmlnLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUNBLHlGQUFnRTtBQUNoRSx5REFBeUQ7QUFDekQseUZBQWdFO0FBQ2hFLGlFQUE0RDtBQUU1RCxNQUFhLFVBQVcsU0FBUSx5Q0FBa0I7SUFDOUMsWUFBWSxHQUF3QjtRQUNoQyxLQUFLLENBQUMsR0FBRyxFQUFFLFlBQVksQ0FBQyxDQUFDO0lBQzdCLENBQUM7SUFFRCxlQUFlO1FBQ1gsSUFBSSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDO2FBQ3ZCLEdBQUcsQ0FBQyxPQUFPO1FBQ1IsMkJBQWdCLENBQUMsU0FBUyxDQUM3QixDQUFDLG1CQUFtQjthQUNwQixJQUFJLENBQ0QsMkJBQWdCLENBQUMsVUFBVSxDQUM5QixDQUFBO1FBRUQsSUFBSSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsZ0JBQWdCLENBQUM7YUFDL0IsR0FBRyxDQUFDLE9BQU87UUFDUiwyQkFBZ0IsQ0FBQyxrQkFBa0IsQ0FBQyxDQUFBLCtCQUErQjthQUN0RSxHQUFHO1FBQ0EsT0FBTztRQUNQLHVDQUF1QztRQUN2QywyQkFBZ0IsQ0FBQyxXQUFXLENBQUMsQ0FBQSxtQkFBbUI7YUFDbkQsTUFBTTtRQUNILE9BQU87UUFDUCwyQkFBZ0IsQ0FBQyxrQkFBa0IsRUFDbkMsMkJBQWdCLENBQUMsV0FBVyxDQUFDLENBQUEsaUJBQWlCO2FBQ2pELEdBQUc7UUFDQSxPQUFPO1FBQ1AsMkJBQWdCLENBQUMsWUFBWSxDQUM1QixDQUFDLENBQUEsb0JBQW9CO1FBRTFCLE9BQU8sSUFBSSxDQUFDLEdBQUcsQ0FBQTtJQUNuQixDQUFDO0NBQ0o7QUFoQ0QsZ0NBZ0NDIn0=

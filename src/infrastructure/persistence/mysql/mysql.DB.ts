@@ -42,6 +42,7 @@ export class MySqlDB implements IDBModel {
     async update(model: Sequelize.Model<any, any>, data: any): Promise<any> {
         await model.update(data);
         return model.save();
+    
     }
 
     list(model: Sequelize.ModelCtor<Sequelize.Model<any, any>>, includes: object): any {

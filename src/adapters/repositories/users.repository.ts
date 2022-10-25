@@ -8,6 +8,7 @@ import modelstoEntities from "../../infrastructure/persistence/mysql/helpers/use
 import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/users.entitiestoModel.mysql.DB";
 import bcrypt from "bcryptjs";
 import { UserEntity } from "../../domain/entities/users/users.entity";
+import { log } from "console";
 
 export class UsersRepository implements IUsersRepository{
     // static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
@@ -45,11 +46,14 @@ export class UsersRepository implements IUsersRepository{
     }
 
     async updateById(resource: UserEntity): Promise<UserEntity | undefined> {
-       
+       console.log("FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.")
         let userModel = await this._database.read(this._modelUsers, resource.iduser!,{});
         const { userGeneral } = entitiestoModel(resource);
-        await this._database.update(modelstoEntities(userModel), userGeneral);
-        return resource;
+        console.log("Galo Campeão!")
+        const returne = await this._database.update(userModel, userGeneral);
+        console.log(returne)
+        return undefined;
+        
         
     }
 
