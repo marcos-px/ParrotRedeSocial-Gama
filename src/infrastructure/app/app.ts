@@ -6,8 +6,8 @@ import * as expressWinston from "express-winston";
 import cors from "cors";
 import{ debug } from "debug";
 
-import { UserRoutes } from "../../adapters/apis/routes/users.routes.config";
-import { PostsRoutes } from "../../adapters/apis/routes/posts.routes.config";
+import { UserRoutes } from "../../adapters/apis/routes/users.routes";
+import { PostsRoutes } from "../../adapters/apis/routes/posts.routes";
 import { CommonRoutesConfig } from "../../adapters/apis/routes/common.routes.config";
 import path from "path";
 

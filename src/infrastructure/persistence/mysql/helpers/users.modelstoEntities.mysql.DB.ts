@@ -8,7 +8,7 @@ export default function (user:any): IUsersEntity | undefined {
     let shufflePass = bcrypt.hashSync(user.password, 10) 
 
     let userGeneral: IUsersEntity = {
-        iduser: user.iduser,
+        indexId: user.indexId,
         name: user.name,
         apartment: user.apartment,
         email: user.email,
@@ -19,7 +19,7 @@ export default function (user:any): IUsersEntity | undefined {
     }
 //
     if(user.logado){
-        (userGeneral as IUsersEntity).iduser = user.iduser;
+        (userGeneral as IUsersEntity).indexId = user.indexId;
         (userGeneral as IUsersEntity).name = user.name
         (userGeneral as IUsersEntity).apartment = user.apartment;
         (userGeneral as IUsersEntity).email = user.email;

@@ -6,7 +6,7 @@ import { IUsersEntity } from "../../../../domain/entities/users/users.entity.int
 export default function (user: IUsersEntity){
     let shufflePass = bcrypt.hashSync(user.password,10)
     const userGeneral = {
-        iduser: user.iduser,
+        indexId: user.indexId,
         name: user.name,
         email: user.email,
         apartment: user.apartment,

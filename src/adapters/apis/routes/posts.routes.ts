@@ -29,7 +29,7 @@ export class PostsRoutes extends CommonRoutesConfig{
             postsControllers.updatePosts)//atualizar usuário
         .delete(
             //auth,
-            usersMiddlewares.validateUserExists,
+            // usersMiddlewares.validateUserExists,
             postsControllers.removePosts)//deletar usuário
         .get(
             //auth,

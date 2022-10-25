@@ -9,6 +9,7 @@ import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/user
 import bcrypt from "bcryptjs";
 import { UserEntity } from "../../domain/entities/users/users.entity";
 import { log } from "console";
+import { IUsersEntity } from "../../domain/entities/users/users.entity.interface";
 
 export class UsersRepository implements IUsersRepository{
     // static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
@@ -21,7 +22,7 @@ export class UsersRepository implements IUsersRepository{
         
     async readById(resourceId: number): Promise<UserEntity | undefined> {
         try {
-            const user = await this._database.read(this._modelUsers, resourceId,{})
+            const user = await this._database.read(this._modelUsers, resourceId)
             return modelstoEntities(user);
         } catch (error) {
             console.error(error);
@@ -31,7 +32,7 @@ export class UsersRepository implements IUsersRepository{
     async create(resource: UserEntity): Promise<UserEntity> {
         const {userGeneral} = entitiestoModel(resource);
         const modelUsers = await this._database.create(this._modelUsers, userGeneral);
-        resource.iduser = modelUsers.null;
+        resource.indexId = modelUsers.null;
         return resource
     }
     
@@ -46,15 +47,20 @@ export class UsersRepository implements IUsersRepository{
     }
 
     async updateById(resource: UserEntity): Promise<UserEntity | undefined> {
-    //    console.log("FUNCIONAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.")
-        let userModel = await this._database.read(this._modelUsers, resource.iduser!,{});
+
+        let userModel = await this._database.read(this._modelUsers, resource.indexId!);
         const { userGeneral } = entitiestoModel(resource);
-        console.log("Galo Campeão!")
-        const returne = await this._database.update(userModel, userGeneral);
-        console.log(returne)
+        console.log("UPDATED BY ID")
+        await this._database.update(userModel, userGeneral);
         return resource;
         
         
+    }
+
+    async login(resource: IUsersEntity): Promise<IUsersEntity> {
+        const { userGeneral } = entitiestoModel(resource)
+        const login = await this._database.login(this._modelUsers, userGeneral)
+        return login
     }
 
 }

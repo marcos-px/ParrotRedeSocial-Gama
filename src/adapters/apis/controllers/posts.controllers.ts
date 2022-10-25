@@ -15,6 +15,7 @@ class PostsController {
         try {
             const posts = await listPostUsecase.execute();
             res.status(200).send(posts);
+            debug.log(posts)
         } catch (error) {
             console.error(error);
             res.status(404).send("Deu ruim ao listar post.")
@@ -22,13 +23,13 @@ class PostsController {
 };
 
     async getPostsById(req: express.Request, res: express.Response){
-        const posts = await readPostUsecase.execute({
-            idpost: Number(req.params)
-        });
         try {
-            if (posts){
+            const posts = await readPostUsecase.execute({
+                idpost: Number(req.params)
+            });
+
+                debug.log(posts)
                 res.status(200).send(posts);
-            }
             return res.json(posts)
         } catch (error) {
             console.log(error);
@@ -39,7 +40,7 @@ class PostsController {
     async createPost(req: express.Request, res: express.Response){
         try {
             const post = createPostUsecase.execute(req.body);
-            log(post);
+            debug.log(post)
         res.status(200).send(req.body);
         } catch (error) {
             console.error(error)

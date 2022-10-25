@@ -29,3 +29,5 @@
 {"level":"error","message":"Usuário 1 não existe","timestamp":"2022-10-24T19:08:21.601Z"}
 {"level":"error","message":"Usuário 1 não existe","timestamp":"2022-10-25T16:27:11.942Z"}
 {"level":"error","message":"Usuário 2 não existe","timestamp":"2022-10-25T17:14:08.646Z"}
+{"level":"error","message":"Usuário undefined não existe","timestamp":"2022-10-25T20:07:33.057Z"}
+{"level":"error","message":"Usuário undefined não existe","timestamp":"2022-10-25T20:07:39.100Z"}

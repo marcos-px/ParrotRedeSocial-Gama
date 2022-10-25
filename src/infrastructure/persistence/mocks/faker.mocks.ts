@@ -14,7 +14,7 @@ export default class FakerMocks implements IMocks{
         const users: IUsersEntity[] = [];
         Array.from({ length: 10}).forEach(()=>{
             users.push({
-                iduser: Number(faker.finance.amount()),
+                indexId: Number(faker.finance.amount()),
                 name: faker.name.fullName(),
                 email: String(faker.internet.email),
                 apartment:Number(faker.finance.amount()),

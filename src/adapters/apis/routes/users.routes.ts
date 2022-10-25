@@ -14,7 +14,10 @@ export class UserRoutes extends CommonRoutesConfig{
         .get(//auth,
             usersControllers.listUsers,
         ) // listar usuários,
+        this.app.route(`/register`)
         .post(
+            usersMiddlewares.ValidationCreateUser,
+            usersMiddlewares.validateUserRepeated,
             usersControllers.createUser,
         )
 
@@ -23,7 +26,7 @@ export class UserRoutes extends CommonRoutesConfig{
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
             //auth,
-            // usersMiddlewares.validateUserExists,
+            usersMiddlewares.validateUserExists,
             usersControllers.updateUsers)//atualizar usuário
         .delete(
             //auth,
@@ -33,6 +36,13 @@ export class UserRoutes extends CommonRoutesConfig{
             //auth,
             usersControllers.getUsersById
             );//pegar conta por id
+            
+        this.app.route(`/login`)
+            .post(
+                usersMiddlewares.loginValid,
+                usersControllers.loginBy
+                
+            )
 
         return this.app
     }
