@@ -1,4 +1,4 @@
-import { IPostEntity } from "../entities/posts/posts.entity";
+import { IPostEntity } from "../entities/posts/posts.entity.interface";
 
 export interface IPostsRepository {
     readById(resourceId: number): Promise<IPostEntity | undefined>,

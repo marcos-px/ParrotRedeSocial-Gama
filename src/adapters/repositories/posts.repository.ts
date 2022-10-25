@@ -1,5 +1,5 @@
 import { IDBModel } from "../../infrastructure/persistence/dbmodel.interface";
-import { IPostEntity } from "../../domain/entities/posts/posts.entity";
+import { PostEntity } from "../../domain/entities/posts/posts.entity";
 import { MySqlDB } from "../../infrastructure/persistence/mysql/mysql.DB";
 import { IPostsRepository } from "../../domain/repositories/posts.repositories.interface";
 import * as Sequelize from "sequelize";
@@ -9,27 +9,27 @@ import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/post
 import bcrypt from "bcryptjs";
 
 export class PostsRepository implements IPostsRepository{
-    static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
-      throw new Error('Method not implemented.');
-    }
+    // static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
+    //   throw new Error('Method not implemented.');
+    // }
     constructor(
         private _database: IDBModel,
         private _modelPosts: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
         ){}
         
-    async readById(resourceId: number): Promise<IPostEntity | undefined> {
+    async readById(resourceId: number): Promise<PostEntity | undefined> {
         try {
-            const posts = await this._database.read(this._modelPosts, resourceId)
+            const posts = await this._database.read(this._modelPosts, resourceId,{})
             return modelstoEntities(posts);
         } catch (error) {
             console.error(error);
         }
     }
     
-    async create(resource: IPostEntity): Promise<IPostEntity> {
-        const posts = entitiestoModel(resource);
-        const modelUsers = await this._database.create(this._modelPosts, posts);
-        resource.idpost = modelUsers;
+    async create(resource: PostEntity): Promise<PostEntity> {
+        const {userGeneralPost} = entitiestoModel(resource);
+        const modelPosts = await this._database.create(this._modelPosts, userGeneralPost);
+        resource.idpost = modelPosts.null;
         return resource
     }
 
@@ -37,16 +37,16 @@ export class PostsRepository implements IPostsRepository{
         await this._database.delete(this._modelPosts, {idpost:resourceId})
     }
 
-    async list(): Promise<IPostEntity[]> {
+    async list(): Promise<PostEntity[]> {
         const posts = await this._database.list(this._modelPosts)
         const clients = posts.map(modelstoEntities)
         return clients;
     }
 
-    async updateById(resource: IPostEntity): Promise<IPostEntity | undefined> {
+    async updateById(resource: PostEntity): Promise<PostEntity | undefined> {
         let postModel = await this._database.read(this._modelPosts, resource.idpost!);
-        const posts = entitiestoModel(resource);
-        await this._database.update(postModel, posts);
+        const {userGeneralPost} = entitiestoModel(resource);
+        await this._database.update(postModel, userGeneralPost);
         return resource;
     }
     }

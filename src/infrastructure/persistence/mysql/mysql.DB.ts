@@ -70,7 +70,7 @@ export class MySqlDB implements IDBModel {
             name,
             properties,
             {
-                timestamps: false
+                timestamps: true
             }
         )
     }
@@ -83,5 +83,11 @@ export class MySqlDB implements IDBModel {
                 replacements: replacements
             }
         );   
+    }
+
+    async login(model: Sequelize.ModelCtor<Sequelize.Model<any,any>>, data: {email: string, password: string}):Promise<any> {
+        return await model.findOne({
+            where: {email: data.email}
+        })
     }
 }

@@ -1,6 +1,6 @@
 
 import postsRepository, { PostsRepository } from "../../../adapters/repositories/posts.repository";
-import { IPostEntity } from "../../entities/posts/posts.entity";
+import { IPostEntity } from "../../entities/posts/posts.entity.interface";
 import { IUseCase } from "../usecase.interface";
 
 class ReadUserUseCase implements IUseCase{

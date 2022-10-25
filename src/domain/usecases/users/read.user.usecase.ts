@@ -1,4 +1,4 @@
-import { IUsersEntity } from "../../entities/users/users.interface.entity";
+import { IUsersEntity } from "../../entities/users/users.entity.interface";
 import usersRepository, { UsersRepository } from "../../../adapters/repositories/users.repository";
 import { IUseCase } from "../usecase.interface";
 

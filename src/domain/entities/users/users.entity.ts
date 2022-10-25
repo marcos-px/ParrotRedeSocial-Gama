@@ -1,3 +1,3 @@
-import { IUsersEntity } from "./users.interface.entity";
+import { IUsersEntity } from "./users.entity.interface";
 
 export type UserEntity = IUsersEntity

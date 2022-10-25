@@ -10,15 +10,15 @@ export class PostsRoutes extends CommonRoutesConfig{
     }
 
     configureRoutes(): express.Application {
-        this.app.route(`/post`)
-        .post(
-            postsControllers.createPost,
-        ) 
 
         this.app.route(`/posts`)
         .get(//auth,
             postsControllers.listPosts,
         ) // listar usuários
+        .post(
+            postsControllers.createPost,
+        ) 
+
 
         this.app.route(`/posts/:idpost`)
         .all(//auth,

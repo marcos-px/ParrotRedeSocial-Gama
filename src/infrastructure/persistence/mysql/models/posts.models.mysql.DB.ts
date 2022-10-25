@@ -5,6 +5,7 @@ export default MySqlDB.getInstance().createModel('post',{
     idpost:{
         type: Sequelize.DataTypes.INTEGER,
         primaryKey: true,
+        field: 'idpost',
     },
     content: Sequelize.DataTypes.STRING,
     iduser:{
@@ -13,5 +14,7 @@ export default MySqlDB.getInstance().createModel('post',{
             model: "users",
             key: "iduser"
         }
-    }
+    },
+    createdAt: Sequelize.DataTypes.DATE,
+    updatedAt: Sequelize.DataTypes.DATE,
 })

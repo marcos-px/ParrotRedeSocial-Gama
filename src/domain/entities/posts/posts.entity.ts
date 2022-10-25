@@ -1,7 +1,3 @@
-export interface IPostEntity{
-    idpost?: number,
-    content:string,
-    createdAt?:Date,
-    updatedAt?:Date
-    iduser: number
-}
+import { IPostEntity } from "./posts.entity.interface";
+
+export type PostEntity = IPostEntity

@@ -1,15 +1,15 @@
-import { IPostEntity } from "../../../../domain/entities/posts/posts.entity";
+import { IPostEntity } from "../../../../domain/entities/posts/posts.entity.interface";
 
-export default function (user: IPostEntity){
-    const userGeneral = {
-       idpost: user.idpost,
-        content: user.content,
-        createdAt: user.createdAt,
-        uptadedAt: user.updatedAt,
-        iduser: user.iduser,
+export default function (post: IPostEntity){
+    const userGeneralPost = {
+       idpost: post.idpost,
+        content: post.content,
+        iduser: post.iduser,
+        createdAt: post.createdAt,
+        updatedAt: post.updatedAt,
     }
 
     return {
-        userGeneral: userGeneral
+        userGeneralPost: userGeneralPost
     };
 }

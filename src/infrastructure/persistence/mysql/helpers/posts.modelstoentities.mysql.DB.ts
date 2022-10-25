@@ -1,24 +1,24 @@
-import { IPostEntity } from "../../../../domain/entities/posts/posts.entity";
+import { IPostEntity } from "../../../../domain/entities/posts/posts.entity.interface";
 
-export default function (user:any): IPostEntity | undefined {
-    if(!user)
+export default function (post:any): IPostEntity | undefined {
+    if(!post)
     return
 
-    let userGeneral: IPostEntity = {
-        idpost: user.idpost,
-        content: user.content,
-        createdAt: user.createdAt,
-        updatedAt: user.updatedAt,
-        iduser: user.iduser,
+    let userGeneralPost: IPostEntity = {
+        idpost: post.idpost,
+        content: post.content,
+        iduser: post.iduser,
+        createdAt: post.createdAt,
+        updatedAt: post.updatedAt
     }
 
-    if(user.logado){
-        (userGeneral as IPostEntity).idpost = user.idpost;
-        (userGeneral as IPostEntity).content = user.content
-        (userGeneral as IPostEntity).createdAt = user.createdAt;
-        (userGeneral as IPostEntity).updatedAt = user.updatedAt;
-        (userGeneral as IPostEntity).iduser = user.iduser;
+    if(post.logado){
+        (userGeneralPost as IPostEntity).idpost = post.idpost;
+        (userGeneralPost as IPostEntity).content = post.content
+        (userGeneralPost as IPostEntity).iduser = post.iduser;
+        (userGeneralPost as IPostEntity).iduser = post.createdAt;
+        (userGeneralPost as IPostEntity).iduser = post.updatedAt;
     }
 
-    return (userGeneral as IPostEntity);
+    return (userGeneralPost as IPostEntity);
 }

@@ -3,7 +3,7 @@ import * as Sequelize from 'sequelize';
 export default {
     up: (queryInterface: Sequelize.QueryInterface) => {
         return queryInterface.createTable('users', {
-            iduser: {
+            iduindexIdser: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
                 field: 'iduser',
@@ -13,6 +13,7 @@ export default {
             email: Sequelize.DataTypes.STRING,
             apartment: Sequelize.DataTypes.INTEGER,
             password: Sequelize.DataTypes.STRING,
+            photo: Sequelize.DataTypes.STRING,
             createdAt: Sequelize.DataTypes.DATE,
             updatedAt: Sequelize.DataTypes.DATE,
         });

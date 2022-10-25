@@ -6,8 +6,9 @@ const dbConfig = {
     password: process.env.DB_PASS,
     port: process.env.DB_PORT,
     database: process.env.DB_NAME,
-    dialect: 'mysql'
+    dialect: 'mysql',
 }
+
 
 export default dbConfig;
 

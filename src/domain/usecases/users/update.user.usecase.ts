@@ -1,7 +1,7 @@
-import { IUsersEntity } from "../../entities/users/users.interface.entity";
-import usersRepository from "../../../adapters/repositories/users.repository";
-import { IUseCase } from "../usecase.interface";
+import { IUsersEntity } from "../../entities/users/users.entity.interface";
+import UsersRepository from "../../../adapters/repositories/users.repository";
 import { IUsersRepository } from "../../repositories/users.repositories.interface";
+import { IUseCase } from "../usecase.interface";
 
 class updateUserUsecase implements IUseCase{
     constructor(private _repository: IUsersRepository){}
@@ -13,5 +13,5 @@ class updateUserUsecase implements IUseCase{
 }
 
 export default new updateUserUsecase(
-    usersRepository
+    UsersRepository
 )

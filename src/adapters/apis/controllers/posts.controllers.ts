@@ -32,7 +32,7 @@ class PostsController {
             return res.json(posts)
         } catch (error) {
             console.log(error);
-            return res.status(500).json({ message: constantsConfig.MIDDLEWARE.MESSAGES.ERROR.SERVIDORERROR_YES})
+            return res.status(500).json({ message: "Deu ruim ao buscar o post por id."})
         } 
     };
 

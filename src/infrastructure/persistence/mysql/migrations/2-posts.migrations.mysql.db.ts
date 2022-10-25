@@ -6,7 +6,8 @@ export default {
             idpost: {
                 type: Sequelize.DataTypes.INTEGER,
                 primaryKey: true,
-                autoIncrement: true
+                autoIncrement: true,
+                field: 'idpost'
             },
             content: Sequelize.DataTypes.STRING,
             createdAt: Sequelize.DataTypes.DATE,

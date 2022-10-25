@@ -1,10 +1,10 @@
-import postsRepository from "../../../adapters/repositories/posts.repository";
-import { IPostEntity } from "../../entities/posts/posts.entity";
+import postsRepository, { PostsRepository } from "../../../adapters/repositories/posts.repository";
+import { IPostEntity } from "../../entities/posts/posts.entity.interface";
 import { IPostsRepository } from "../../repositories/posts.repositories.interface";
 import { IUseCase } from "../usecase.interface";
 
 class ReadUserUseCase implements IUseCase{
-    constructor(private _repository: IPostsRepository){}
+    constructor(private _repository: PostsRepository){}
     async execute(data: { idpost:number}): Promise<IPostEntity | undefined> {
         return await this._repository.readById(data.idpost)        
     }

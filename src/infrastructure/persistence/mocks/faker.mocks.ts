@@ -1,4 +1,4 @@
-import { IUsersEntity } from "../../../domain/entities/users/users.interface.entity";
+import { IUsersEntity } from "../../../domain/entities/users/users.entity.interface";
 import IMocks from "./mocks.interface";
 import { faker } from "@faker-js/faker"
 import usersRepository from "../../../adapters/repositories/users.repository";
