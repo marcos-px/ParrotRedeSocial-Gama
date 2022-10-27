@@ -1,4 +1,4 @@
-// import { IUsersEntity } from "../../entities/users/users.entity";
+// import { IUsersEntity } from "../../entities/users/users.entity.interface";
 // import usersRepository, { UsersRepository } from "../../../adapters/repositories/users.repository";
 // import {IUseCase}  from "../usecase.interface";
 // import bcrypt = require("bcryptjs");
@@ -23,7 +23,8 @@
 //         email: "kmlkmd@151",
 //         apartment: 15615,
 //         password: "51651@5165",
-//         iduser:1
+//         indexId:1,
+//         photo:"www.log.img.com"
 //     }
 
 //     const createUser = new createUsersUsecase(

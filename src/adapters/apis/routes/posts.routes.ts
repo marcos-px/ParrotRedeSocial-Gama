@@ -1,6 +1,5 @@
 import express from "express";
 import postsControllers from "../controllers/posts.controllers";
-// import { auth } from "../middlewares/auth.middleware";
 import usersMiddlewares from "../middlewares/users.middlewares";
 import { CommonRoutesConfig } from "./common.routes.config";
 
@@ -13,29 +12,35 @@ export class PostsRoutes extends CommonRoutesConfig{
 
         this.app.route(`/posts`)
         .get(//auth,
+        usersMiddlewares.compareSync,
             postsControllers.listPosts,
-        ) // listar usuários
+        ) // listar posts
         .post(
+            usersMiddlewares.compareSync,
             postsControllers.createPost,
         ) 
 
 
         this.app.route(`/posts/:idpost`)
-        .all(//auth,
+        .all(
+            usersMiddlewares.compareSync,
             postsControllers.listPosts)//valida se conta existe ou não
         .put(
-            //auth,
-            // usersMiddlewares.validateRequiredAccountBodyFields,
+            usersMiddlewares.compareSync,
             postsControllers.updatePosts)//atualizar usuário
         .delete(
-            //auth,
-            // usersMiddlewares.validateUserExists,
+            usersMiddlewares.compareSync,
             postsControllers.removePosts)//deletar usuário
         .get(
-            //auth,
+            usersMiddlewares.compareSync,
             postsControllers.getPostsById
-                );//pegar conta por id
+                )//pegar conta por id
 
+        this.app.route(`/posts/:iduser`)
+        .post(
+            usersMiddlewares.compareSync,
+            postsControllers.createPost,
+                )
         return this.app
     }
 }

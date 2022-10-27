@@ -10,7 +10,7 @@ export default function (user: IUsersEntity){
         name: user.name,
         email: user.email,
         apartment: user.apartment,
-        password: shufflePass,
+        password: user.password,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
         photo: user.photo,

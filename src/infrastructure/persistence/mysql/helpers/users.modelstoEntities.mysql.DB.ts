@@ -23,7 +23,7 @@ export default function (user:any): IUsersEntity | undefined {
         (userGeneral as IUsersEntity).name = user.name
         (userGeneral as IUsersEntity).apartment = user.apartment;
         (userGeneral as IUsersEntity).email = user.email;
-        (userGeneral as IUsersEntity).password = shufflePass;
+        (userGeneral as IUsersEntity).password = user.password;
         (userGeneral as IUsersEntity).createdAt = user.createdAt;
         (userGeneral as IUsersEntity).updatedAt = user.updatedAt;
         (userGeneral as IUsersEntity).photo = user.photo;

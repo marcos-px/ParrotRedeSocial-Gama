@@ -67,7 +67,8 @@ export class UsersRepository implements IUsersRepository{
             })
             return modelstoEntities(login);
         } catch (error) {
-        console.error(error)        }
+        console.error(error)        
+    }
 
     }
 

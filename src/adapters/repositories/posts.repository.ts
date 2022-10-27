@@ -9,9 +9,7 @@ import entitiestoModel from "../../infrastructure/persistence/mysql/helpers/post
 import bcrypt from "bcryptjs";
 
 export class PostsRepository implements IPostsRepository{
-    // static findOneBy(arg0: { decoded: string | import("jsonwebtoken").JwtPayload; }) {
-    //   throw new Error('Method not implemented.');
-    // }
+
     constructor(
         private _database: IDBModel,
         private _modelPosts: Sequelize.ModelCtor<Sequelize.Model<any, any>>,
@@ -19,7 +17,7 @@ export class PostsRepository implements IPostsRepository{
         
     async readById(resourceId: number): Promise<PostEntity | undefined> {
         try {
-            const posts = await this._database.read(this._modelPosts, resourceId,{})
+            const posts = await this._database.read(this._modelPosts, resourceId)
             return modelstoEntities(posts);
         } catch (error) {
             console.error(error);
@@ -29,7 +27,6 @@ export class PostsRepository implements IPostsRepository{
     async create(resource: PostEntity): Promise<PostEntity> {
         const {userGeneralPost} = entitiestoModel(resource);
         const modelPosts = await this._database.create(this._modelPosts, userGeneralPost);
-        resource.idpost = modelPosts.null;
         return resource
     }
 
