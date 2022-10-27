@@ -56,7 +56,6 @@ Instale o meu projeto com npm
 
 ```bash
   npm install 
-  npm run debug
 ```
 
 Crie o Banco de dados MySQL
@@ -77,6 +76,10 @@ Execute os testes necessários
   npx jest
 ```
 
+Suba a API
+```
+  npm run debug
+  ```
 
 ---
 
