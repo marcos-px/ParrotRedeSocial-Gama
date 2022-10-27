@@ -6,11 +6,12 @@ import readUserUsecase from '../../../domain/usecases/users/read.user.usecase';
 import createUsersUsecase from '../../../domain/usecases/users/create.users.usecase';
 import updateUserUsecase from '../../../domain/usecases/users/update.user.usecase';
 import deleteUserUsecase from '../../../domain/usecases/users/delete.user.usecase';
-import bcrypt from 'bcryptjs'
 import constantsConfig from '../../../infrastructure/config/constants.config';
 import loginUserUsecase from '../../../domain/usecases/users/login.user.usecase';
+
 import jwt from 'jsonwebtoken';
 import authConfig from '../../../infrastructure/config/auth.config';
+import { getErrorMessage } from '../utils/errors.util';
 
 const log: debug.Debugger = debug('app:users-controller');
 
@@ -60,18 +61,14 @@ class UsersController {
     }
 
     async loginBy(req: express.Request, res: express.Response){
-        try {
-            const user = await loginUserUsecase.execute(req.body)
-            const pass = jwt.sign({
-                indexId: user.indexId,
-                name: user.name,
-                email: user.email,
-            }, authConfig.jwtSecret)
-            return res.status(200).send(user)    
-        } catch (error) {
-            return res.status(500).send(error)
+        const user = await loginUserUsecase.execute(req.body);
+        if(user){
+            res.status(200).send(user)
+        } else{
+            res.status(401).send({error: constantsConfig.AUTHENTICATOR.MESSAGES.ERROR.LOGININCORRECT_YES}) //colocar co
+
         }
-    }
+}
     async createUserBulk(req: express.Request, res: express.Response) {
         let countUsers = 0;
         for(countUsers = 0; countUsers < req.body.fileData.length; countUsers++){

@@ -6,10 +6,9 @@ import readUserUsecase from '../../../domain/usecases/users/read.user.usecase';
 import logger from '../../../infrastructure/logs/winston.logs';
 import multer from 'multer';
 import path from 'path';
-import {validate, Joi, ValidationError} from 'express-validation'
-import usersRepository from '../../repositories/users.repository';
-import { validateHeaderName } from 'http';
-import loginUserUsecase from '../../../domain/usecases/users/login.user.usecase';
+import {validate, Joi, } from 'express-validation'
+import jwt from 'jsonwebtoken';
+
 
 const log: debug.IDebugger = debug('app:users-middleware');
 
@@ -48,18 +47,34 @@ class UsersMiddlerare{
     }
 
     async compareSync(req: express.Request, res: express.Response, next: express.NextFunction){
-        const users = await loginUserUsecase.execute(req.body)
-        let compare = bcrypt.compareSync(req.body.password, users.password)
+        try {
+            const token = req.header(`Authorization`)?.replace(`Bearer `, ``);
 
-        if( compare ) {
-            logger.info([" Senha comparada!"])
-            next()
-        } else{
-            logger.error(['Senha inválida!'])
-            res.status(401).send({message: constantsConfig.RETURN.MESSAGES.SENDS.KEYANDEMAILINVALID_YES})
+        if(!token){
+        res.status(401).send({
+            message: constantsConfig.RETURN.MESSAGES.SENDS.KEYANDEMAILINVALID_YES
+        });
+
+        }else{
+    
+        const decoded = jwt.verify(token, String( process.env.SECRET_KEY));
+        if(typeof decoded === 'string'){
+            res.status(401).send({
+                error: constantsConfig.AUTHENTICATOR.MESSAGES.ERROR.AUTHORIZATION_NO
+            });
+        }else{
+        console.log(decoded.indexId);
+        next();
+
         }
     }
 
+}
+    catch (error) {
+        res.status(401).send({message: constantsConfig.RETURN.MESSAGES.SENDS.KEYANDEMAILINVALID_YES})
+    }
+
+}
 
     uploadFile(){
         return multer({

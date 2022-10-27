@@ -4,7 +4,8 @@ export default {
             ERROR: {
                 INCORRECT_EMAIL: `E-mail não encontrado, verifique e tente novamente.`,
                 INCORRECT_PASSWORD: `Senha incorreta, verifique e tente novamente.`,
-                AUTHORIZATION_NO: `Usuário não autorizado, verifique se está logado e tente novamente.`
+                AUTHORIZATION_NO: `Usuário não autorizado, verifique se está logado e tente novamente.`,
+                LOGININCORRECT_YES: `Dados enviados incorretamente. Gentileza verificar.`
             }
         }
     },
@@ -19,7 +20,7 @@ export default {
                 ERRORUPDATED_YES: `Deu ruim ao atualizar o post`,
                 ERRORCREATED_YES: `Deu ruim ao criar o post`,
                 ERRORGETBYID_YES: `Deu ruim ao BUSCAR O POST  por id`,
-                ERRORLIST_YES: `Deu ruim ap listar post.`
+                ERRORLIST_YES: `Deu ruim ap listar post.`,
 
             }
         }

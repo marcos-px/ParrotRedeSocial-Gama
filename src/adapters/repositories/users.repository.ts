@@ -59,10 +59,16 @@ export class UsersRepository implements IUsersRepository{
 
     
 
-    async login(resource: IUsersEntity): Promise<IUsersEntity> {
-        const { userGeneral } = entitiestoModel(resource)
-        const login = await this._database.login(this._modelUsers, userGeneral)
-        return login
+    async readByWhere(email:string, password: string): Promise<IUsersEntity | undefined> {
+        try {
+            const login = await this._database.readByWhere(this._modelUsers, {
+                email: email, 
+                password: password
+            })
+            return modelstoEntities(login);
+        } catch (error) {
+        console.error(error)        }
+
     }
 
 

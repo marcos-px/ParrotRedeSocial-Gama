@@ -11,35 +11,33 @@ export class UserRoutes extends CommonRoutesConfig{
 
     configureRoutes(): express.Application {
         this.app.route(`/users`)
-        .get(//auth,
+        .get(usersMiddlewares.compareSync,
             usersControllers.listUsers,
         ) // listar usuários,
         this.app.route(`/register`)
         .post(
-            // usersMiddlewares.ValidationCreateUser,
             usersMiddlewares.validateUserRepeated,
             usersControllers.createUser,
         )
 
         this.app.route(`/users/:indexId`)
-        .all(//auth,
+        .all(
             usersMiddlewares.validateUserExists)//valida se conta existe ou não
         .put(
-            //auth,
+            usersMiddlewares.compareSync,
             usersMiddlewares.validateUserExists,
             usersControllers.updateUsers)//atualizar usuário
         .delete(
-            //auth,
+            usersMiddlewares.compareSync,
             usersMiddlewares.validateUserExists,
             usersControllers.removeUsers)//deletar usuário
         .get(
-            //auth,
+            usersMiddlewares.compareSync,
             usersControllers.getUsersById
             );//pegar conta por id
             
         this.app.route(`/login`)
             .post(
-                // usersMiddlewares.loginValid,
                 usersControllers.loginBy
                 
             )

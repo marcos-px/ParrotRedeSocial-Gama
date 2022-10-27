@@ -85,9 +85,9 @@ export class MySqlDB implements IDBModel {
         );   
     }
 
-    async login(model: Sequelize.ModelCtor<Sequelize.Model<any,any>>, data: {email: string, password: string}):Promise<any> {
+    async readByWhere(model: Sequelize.ModelCtor<Sequelize.Model<any,any>>, dataWhere: Sequelize.WhereOptions<any>):Promise<any> {
         return await model.findOne({
-            where: {email: data.email}
+            where: dataWhere
         })
     }
 }

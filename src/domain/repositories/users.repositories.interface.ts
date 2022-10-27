@@ -1,3 +1,4 @@
+import { EphemeralKeyInfo } from "tls";
 import { UserEntity } from "../entities/users/users.entity";
 
 export interface IUsersRepository {
@@ -6,5 +7,5 @@ export interface IUsersRepository {
     deletedById(resourceId: number): Promise<void>,
     list(): Promise<UserEntity[]>,
     updateById(resource: UserEntity): Promise<UserEntity | undefined >,
-    login(resource: UserEntity): Promise<UserEntity>
+    readByWhere(email: string, password: string): Promise<UserEntity | undefined>
 }
