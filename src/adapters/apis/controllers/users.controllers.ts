@@ -47,7 +47,6 @@ class UsersController {
     }
 
     async updateUsers(req: express.Request, res: express.Response){
-        // let user = await readUserUsecase.execute({indexId: Number(req.params.indexId)})
         const user = await updateUserUsecase.execute(req.body);
         console.log("CONSOLE DO CONTROLLER")
         res.status(200).send(user)
@@ -61,13 +60,18 @@ class UsersController {
     }
 
     async loginBy(req: express.Request, res: express.Response){
-        const user = await loginUserUsecase.execute(req.body);
+        try {
+            const user = await loginUserUsecase.execute(req.body);
         if(user){
             res.status(200).send(user)
         } else{
-            res.status(401).send({error: constantsConfig.AUTHENTICATOR.MESSAGES.ERROR.LOGININCORRECT_YES}) //colocar co
-
+            res.status(401).send({error: constantsConfig.AUTHENTICATOR.MESSAGES.ERROR.LOGININCORRECT_YES}) 
         }
+        } catch (error) {
+            console.log(error)
+        }
+        
+        
 }
     async createUserBulk(req: express.Request, res: express.Response) {
         let countUsers = 0;
