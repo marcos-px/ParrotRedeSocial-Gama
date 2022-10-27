@@ -12,7 +12,7 @@ export class UserRoutes extends CommonRoutesConfig{
     configureRoutes(): express.Application {
         this.app.route(`/users`)
         .get(
-            // usersMiddlewares.compareSync,
+            usersMiddlewares.compareSync,
             usersControllers.listUsers,
         ) // listar usuários,
         this.app.route(`/register`)

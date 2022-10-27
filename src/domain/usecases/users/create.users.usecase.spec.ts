@@ -1,34 +1,29 @@
-// import { IUsersEntity } from "../../entities/users/users.entity.interface";
-// import usersRepository, { UsersRepository } from "../../../adapters/repositories/users.repository";
-// import {IUseCase}  from "../usecase.interface";
-// import bcrypt = require("bcryptjs");
-// import createUsersUsecase from "./create.users.usecase";
+import { UserEntity } from "../../entities/users/users.entity";
+import {UsersRepository} from "../../../adapters/repositories/users.repository";
+import createUsersUsecase from "./create.users.usecase";
 
-// jest.mock("../../../adapters/repositories/users.repository");
+jest.mock("../../../adapters/repositories/users.repository");
 
-// const UsersRepositoryMock = UsersRepository as jest.Mock<UsersRepository>
+const UsersRepositoryMock = UsersRepository as jest.Mock<UsersRepository>
 
-// test("Teste unitário createUserUseCase", async ()=> {
+test("Teste unitário createUserUseCase", async ()=> {
     
-//     const userRepository = new UsersRepositoryMock() as jest.Mocked<UsersRepository>;
-//     userRepository.create.mockRejectedValue({
-//         "nome":"Marcos Teixeira",
-//         "email":"marc@teixeira.com",
-//         "apartment":23,
-//         "password": "1516sa"
-//     })
+    const userRepository = new UsersRepositoryMock() as jest.Mocked<UsersRepository>;
+    userRepository.create.mockRejectedValue({
+        "name":"Marcos Teixeira",
+        "email":"marc@teixeira.com",
+        "apartment":23,
+        "password": "1516sa",
+        "photo":"http://dsjkhsdkljds.com"
+    })
 
-//     const user: IUsersEntity = {
-//         name: "Marcos",
-//         email: "kmlkmd@151",
-//         apartment: 15615,
-//         password: "51651@5165",
-//         indexId:1,
-//         photo:"www.log.img.com"
-//     }
+    const user: UserEntity = {
+        name: "Marcos",
+        email: "kmlkmd@151",
+        apartment: 15615,
+        password: "51651@5165",
+        photo:"www.log.img.com"
+    }
 
-//     const createUser = new createUsersUsecase(
-//         userRepository
-//     )
-//     expect(await createUser.execute(user))
-// })
+    expect(await createUsersUsecase.execute(user)).toMatchObject(user)
+})

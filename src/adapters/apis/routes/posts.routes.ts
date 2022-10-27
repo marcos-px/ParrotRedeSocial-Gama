@@ -12,11 +12,11 @@ export class PostsRoutes extends CommonRoutesConfig{
 
         this.app.route(`/posts`)
         .get(//auth,
-        usersMiddlewares.compareSync,
+        // usersMiddlewares.compareSync,
             postsControllers.listPosts,
         ) // listar posts
         .post(
-            usersMiddlewares.compareSync,
+            // usersMiddlewares.compareSync,
             postsControllers.createPost,
         ) 
 
