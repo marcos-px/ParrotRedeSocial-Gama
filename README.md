@@ -1,5 +1,3 @@
-# ParrotRedeSocial-Gama
 
+![Logo](/src/views/logo-colorido.png)
 
-
-npx sequelize–cli migration:generate —name create–parrot
