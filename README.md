@@ -5,8 +5,7 @@ A rede social Parrot é um sistema white label (ou seja, um sistema modelo criad
 
 
 
-
-                                            ![Logo](/src/views/logo-colorido.png)
+![Logo](/src/views/logo-colorido.png)
 
 
 
@@ -48,7 +47,7 @@ b. endpoint (casos de erro também)
 
 ## Documentação da API
 
-### Por ser extensa, a Documentação da API pode ser localizada no site: <a src="">
+### Por ser extensa, a Documentação da API pode ser localizada no site: <a src="https://marcos-px.github.io/ParrotRedeSocial-Gama/">Ver documentação</a>
 
 
 ## Instalação
@@ -81,7 +80,7 @@ Execute os testes necessários
 
 ---
 
-    ## 🚀 Sobre mim
+### 🚀 Sobre mim
 
 Eu sou uma pessoa desenvolvedora full-stack...
 
