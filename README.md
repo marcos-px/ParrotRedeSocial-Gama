@@ -6,10 +6,9 @@ A rede social Parrot é um sistema white label (ou seja, um sistema modelo criad
 
 
 
-![Logo](/src/views/logo-colorido.png)
+                                            ![Logo](/src/views/logo-colorido.png)
 
 
-Adicione etiquetas de algum lugar, como: [shields.io](https://shields.io/)
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -49,7 +48,7 @@ b. endpoint (casos de erro também)
 
 ## Documentação da API
 
-### Por ser extensa, a Documentação da API pode ser localizada no site: 
+### Por ser extensa, a Documentação da API pode ser localizada no site: <a src="">
 
 
 ## Instalação
@@ -79,7 +78,11 @@ Execute os testes necessários
   npx jest
 ```
 
+
+---
+
     ## 🚀 Sobre mim
+
 Eu sou uma pessoa desenvolvedora full-stack...
 
 Sou o Marcos, tenho 28 anos e moro em Sete Lagoas-MG, bem pertim de BH.
@@ -101,5 +104,6 @@ Feito com ❤️ por Marcos Teixeira
 
 [![Linkedin Badge](https://img.shields.io/badge/-Marcos-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/marcos-teixeira-jr2022/)](https://www.linkedin.com/in/marcos-teixeira-jr2022/) 
 [![Gmail Badge](https://img.shields.io/badge/-marcxstx@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:marcxstx@gmail.com)](mailto:marcxstx@gmail.com)
+[![Gmail Badge](https://img.shields.io/badge/-marcxstx@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:marcos@marcosteixeiradev.com)](mailto:marcos@marcosteixeiradev.com)
 
 
