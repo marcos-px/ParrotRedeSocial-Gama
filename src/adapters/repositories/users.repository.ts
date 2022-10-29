@@ -47,12 +47,16 @@ export class UsersRepository implements IUsersRepository{
     }
 
     async updateById(resource: UserEntity): Promise<UserEntity | undefined> {
+        try {
+            let userModel = await this._database.read(this._modelUsers, resource.indexId!);
+            const { userGeneral } = entitiestoModel(resource);
+            console.log("UPDATED BY ID")
+            await this._database.update(userModel, userGeneral);
+            return resource;
+        } catch (error) {
+            console.error(error)
+        }
 
-        let userModel = await this._database.read(this._modelUsers, resource.indexId!);
-        const { userGeneral } = entitiestoModel(resource);
-        console.log("UPDATED BY ID")
-        await this._database.update(userModel, userGeneral);
-        return resource;
         
         
     }
