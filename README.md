@@ -47,8 +47,7 @@ b. endpoint (casos de erro também)
 
 ## Documentação da API
 
-### Por ser extensa, a Documentação da API pode ser localizada no site: <a src="https://marcos-px.github.io/ParrotRedeSocial-Gama/">Ver documentação</a>
-
+### Por ser extensa, a Documentação da API pode ser localizada no site: https://marcos-px.github.io/ParrotRedeSocial-Gama/
 
 ## Instalação
 
