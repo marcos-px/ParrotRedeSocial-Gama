@@ -89,33 +89,7 @@ class UsersMiddlerare{
         })
     }
 
-    ValidationCreateUser = validate({
-        body: Joi.object({
-            name: Joi.string().required(),
-            email: Joi.string().email().required(),
-            apartment: Joi.number().required(),
-            password: Joi.string().min(8).required(),
-            photo: Joi.string().required(),
 
-        })
-    })
-
-    loginValid = validate({
-        body: Joi.object({
-            email: Joi.string().email().required(),
-            password: Joi.string().min(8).required(),
-        })
-    })
-
-    updateCreateValid = validate({
-        body: Joi.object({
-            name: Joi.string(),
-            email: Joi.string().email(),
-            apartment: Joi.number(),
-            password: Joi.string().min(8).regex(/[a-zA-Z0-9]{3,30}/),
-            photo: Joi.string(),
-    })
-})
 }
 
 export default new UsersMiddlerare();

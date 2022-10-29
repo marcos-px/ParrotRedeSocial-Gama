@@ -18,6 +18,7 @@ test("Teste unitário createUserUseCase", async ()=> {
     })
 
     const user: UserEntity = {
+
         name: "Marcos",
         email: "kmlkmd@151",
         apartment: 15615,

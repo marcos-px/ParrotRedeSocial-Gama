@@ -18,7 +18,7 @@ await createUsersUsecase.execute(user);
     const user2: UserEntity = {
         name: "Marcos",
         email: "kmlkmd@151",
-        apartment: 15615,
+        apartment: 152615,
         password: "51651@5165",
         photo:"www.log.img.com"
     }
@@ -26,7 +26,7 @@ await createUsersUsecase.execute(user);
     const user3: UserEntity = {
         name: "Marcos",
         email: "kmlkmd@151",
-        apartment: 15615,
+        apartment: 156155,
         password: "51651@5165",
         photo:"www.log.img.com"
     }
