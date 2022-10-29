@@ -1,7 +1,7 @@
 
 # PARROT - REDE SOCIAL
 
-A rede social Parrot é um sistema white label (ou seja, um sistema modelo criado por uma empresa que pode ser reutilizado por outras, apenas modificando informações como logo e marca) do qual condomínios podem contratar para incentivar a interação entre os moradores. A plataforma permite que os usuários façam publicações que ficam visíveis para toda comunidade.
+A rede social Parrot é um sistema white label (ou seja, um sistema modelo criado por uma empresa que pode ser reutilizado por outras, apenas modificando informações como logo e marca) do qual condomínios podem contratar para incentivar a interação entre os moradores. A plataforma permite que os usuários façam publicações que ficam visíveis para toda comunidade. Utilizei o princípio A.D.I.T para desenvolver o software.
 
 
 
@@ -47,8 +47,7 @@ b. endpoint (casos de erro também)
 
 ## Documentação da API
 
-### Por ser extensa, a Documentação da API pode ser localizada no site: <a src="https://marcos-px.github.io/ParrotRedeSocial-Gama/">Ver documentação</a>
-
+### Por ser extensa, a Documentação da API pode ser localizada no site: https://marcos-px.github.io/ParrotRedeSocial-Gama/
 
 ## Instalação
 
